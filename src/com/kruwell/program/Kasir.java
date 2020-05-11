@@ -31,6 +31,7 @@ public class Kasir extends javax.swing.JFrame {
                      
         setColor(btn_transaksi);
         switchPanels(Layout_transaksi);
+        txt_Tittle.setText("Transaksi");
     }
     
     public Kasir() {
@@ -99,6 +100,41 @@ public class Kasir extends javax.swing.JFrame {
         Tittle = new javax.swing.JPanel();
         txt_Tittle = new javax.swing.JLabel();
         layeredPane = new javax.swing.JLayeredPane();
+        passwordProfile = new javax.swing.JPanel();
+        passwordSave = new javax.swing.JButton();
+        passwordCancel = new javax.swing.JButton();
+        kolomPassword = new javax.swing.JPanel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        passwordBaru = new javax.swing.JTextField();
+        passwordLama = new javax.swing.JTextField();
+        editProfile = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
+        nama1 = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        no_telp1 = new javax.swing.JTextField();
+        jLabel16 = new javax.swing.JLabel();
+        email1 = new javax.swing.JTextField();
+        jLabel17 = new javax.swing.JLabel();
+        jabatan1 = new javax.swing.JLabel();
+        backEditProfile = new javax.swing.JButton();
+        saveEditProfile = new javax.swing.JButton();
+        browseEditProfile = new javax.swing.JButton();
+        lihatProfile = new javax.swing.JPanel();
+        Foto = new javax.swing.JPanel();
+        Identitas = new javax.swing.JPanel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        textNama = new javax.swing.JLabel();
+        textNoTelp = new javax.swing.JLabel();
+        textEmail = new javax.swing.JLabel();
+        textJabatan = new javax.swing.JLabel();
+        gantiPassword = new javax.swing.JButton();
+        editData = new javax.swing.JButton();
         Layout_transaksi = new javax.swing.JPanel();
         Total_harga = new javax.swing.JLabel();
         Total_harga2 = new javax.swing.JLabel();
@@ -112,18 +148,6 @@ public class Kasir extends javax.swing.JFrame {
         Layout_riwayat = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        Layout_profile = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        nama = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        no_telp = new javax.swing.JTextField();
-        jLabel11 = new javax.swing.JLabel();
-        email = new javax.swing.JTextField();
-        jLabel12 = new javax.swing.JLabel();
-        jabatan = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -252,6 +276,181 @@ public class Kasir extends javax.swing.JFrame {
 
         bg.add(Tittle, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 30, 720, 100));
 
+        passwordProfile.setBackground(new java.awt.Color(255, 255, 255));
+        passwordProfile.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        passwordSave.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        passwordSave.setText("Save");
+        passwordSave.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                passwordSaveMouseClicked(evt);
+            }
+        });
+        passwordProfile.add(passwordSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 340, -1, -1));
+
+        passwordCancel.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        passwordCancel.setText("Cancel");
+        passwordCancel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                passwordCancelMouseClicked(evt);
+            }
+        });
+        passwordProfile.add(passwordCancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 340, -1, -1));
+
+        kolomPassword.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel22.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel22.setText("Password Lama  :");
+        kolomPassword.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, -1, 30));
+
+        jLabel23.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel23.setText("Password Baru   :");
+        kolomPassword.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, -1, 30));
+
+        passwordBaru.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        kolomPassword.add(passwordBaru, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 150, 330, 30));
+
+        passwordLama.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        kolomPassword.add(passwordLama, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 100, 330, 30));
+
+        passwordProfile.add(kolomPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 630, 280));
+
+        editProfile.setBackground(new java.awt.Color(255, 255, 255));
+        editProfile.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 130, Short.MAX_VALUE)
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 130, Short.MAX_VALUE)
+        );
+
+        editProfile.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 50, 130, 130));
+
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        nama1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jPanel4.add(nama1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 50, 340, 30));
+
+        jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel14.setText("Nama  :");
+        jPanel4.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, -1, 30));
+
+        jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel15.setText("No. telp :");
+        jPanel4.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, -1, 30));
+
+        no_telp1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jPanel4.add(no_telp1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, 340, 30));
+
+        jLabel16.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel16.setText("Email   :");
+        jPanel4.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, -1, 30));
+
+        email1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jPanel4.add(email1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, 340, 30));
+
+        jLabel17.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel17.setText("Jabatan :");
+        jPanel4.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, -1, 30));
+
+        jabatan1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jPanel4.add(jabatan1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 200, 340, 30));
+
+        editProfile.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 490, 280));
+
+        backEditProfile.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        backEditProfile.setText("Back");
+        backEditProfile.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                backEditProfileMouseClicked(evt);
+            }
+        });
+        editProfile.add(backEditProfile, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 350, -1, -1));
+
+        saveEditProfile.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        saveEditProfile.setText("Save");
+        saveEditProfile.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                saveEditProfileMouseClicked(evt);
+            }
+        });
+        editProfile.add(saveEditProfile, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 350, -1, -1));
+
+        browseEditProfile.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        browseEditProfile.setText("Browse");
+        editProfile.add(browseEditProfile, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 190, 90, 30));
+
+        lihatProfile.setBackground(new java.awt.Color(255, 255, 255));
+        lihatProfile.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        javax.swing.GroupLayout FotoLayout = new javax.swing.GroupLayout(Foto);
+        Foto.setLayout(FotoLayout);
+        FotoLayout.setHorizontalGroup(
+            FotoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 130, Short.MAX_VALUE)
+        );
+        FotoLayout.setVerticalGroup(
+            FotoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 130, Short.MAX_VALUE)
+        );
+
+        lihatProfile.add(Foto, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 50, 130, 130));
+
+        Identitas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel18.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel18.setText("Nama  :");
+        Identitas.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, -1, 30));
+
+        jLabel19.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel19.setText("No. telp :");
+        Identitas.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, -1, 30));
+
+        jLabel20.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel20.setText("Email   :");
+        Identitas.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, -1, 30));
+
+        jLabel21.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel21.setText("Jabatan :");
+        Identitas.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, -1, 30));
+
+        textNama.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        Identitas.add(textNama, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 50, 340, 30));
+
+        textNoTelp.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        Identitas.add(textNoTelp, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, 340, 30));
+
+        textEmail.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        Identitas.add(textEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, 340, 30));
+
+        textJabatan.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        Identitas.add(textJabatan, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 200, 340, 30));
+
+        lihatProfile.add(Identitas, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 490, 280));
+
+        gantiPassword.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        gantiPassword.setText("Ganti Password");
+        gantiPassword.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                gantiPasswordMouseClicked(evt);
+            }
+        });
+        lihatProfile.add(gantiPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 340, -1, -1));
+
+        editData.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        editData.setText("Edit data");
+        editData.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                editDataMouseClicked(evt);
+            }
+        });
+        lihatProfile.add(editData, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 340, -1, -1));
+
         Layout_transaksi.setBackground(new java.awt.Color(255, 255, 255));
         Layout_transaksi.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -375,59 +574,13 @@ public class Kasir extends javax.swing.JFrame {
 
         Layout_riwayat.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 670, 390));
 
-        Layout_profile.setBackground(new java.awt.Color(255, 255, 255));
-        Layout_profile.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 130, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 130, Short.MAX_VALUE)
-        );
-
-        Layout_profile.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 50, 130, 130));
-
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel2.add(nama, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 50, 340, 30));
-
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel1.setText("Nama");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, -1, 30));
-
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel2.setText("No. telp");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, -1, 30));
-        jPanel2.add(no_telp, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, 340, 30));
-
-        jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel11.setText("Email");
-        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, -1, 30));
-        jPanel2.add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, 340, 30));
-
-        jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel12.setText("Jabatan");
-        jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, -1, 30));
-        jPanel2.add(jabatan, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 200, 340, 30));
-
-        Layout_profile.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 490, 280));
-
-        jButton1.setText("Edit data");
-        Layout_profile.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 350, -1, -1));
-
         javax.swing.GroupLayout layeredPaneLayout = new javax.swing.GroupLayout(layeredPane);
         layeredPane.setLayout(layeredPaneLayout);
         layeredPaneLayout.setHorizontalGroup(
             layeredPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 720, Short.MAX_VALUE)
-            .addGroup(layeredPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layeredPaneLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(Layout_profile, javax.swing.GroupLayout.PREFERRED_SIZE, 720, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(layeredPaneLayout.createSequentialGroup()
+                .addComponent(lihatProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 740, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 30, Short.MAX_VALUE))
             .addGroup(layeredPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layeredPaneLayout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -438,15 +591,20 @@ public class Kasir extends javax.swing.JFrame {
                     .addGap(0, 0, Short.MAX_VALUE)
                     .addComponent(Layout_riwayat, javax.swing.GroupLayout.PREFERRED_SIZE, 720, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(layeredPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layeredPaneLayout.createSequentialGroup()
+                    .addComponent(editProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 755, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 15, Short.MAX_VALUE)))
+            .addGroup(layeredPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layeredPaneLayout.createSequentialGroup()
+                    .addComponent(passwordProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 755, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 15, Short.MAX_VALUE)))
         );
         layeredPaneLayout.setVerticalGroup(
             layeredPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 410, Short.MAX_VALUE)
-            .addGroup(layeredPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layeredPaneLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(Layout_profile, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(layeredPaneLayout.createSequentialGroup()
+                .addComponent(lihatProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 47, Short.MAX_VALUE))
             .addGroup(layeredPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layeredPaneLayout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -457,10 +615,20 @@ public class Kasir extends javax.swing.JFrame {
                     .addGap(0, 0, Short.MAX_VALUE)
                     .addComponent(Layout_riwayat, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(layeredPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layeredPaneLayout.createSequentialGroup()
+                    .addComponent(editProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 471, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 16, Short.MAX_VALUE)))
+            .addGroup(layeredPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layeredPaneLayout.createSequentialGroup()
+                    .addComponent(passwordProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 471, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 16, Short.MAX_VALUE)))
         );
+        layeredPane.setLayer(passwordProfile, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        layeredPane.setLayer(editProfile, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        layeredPane.setLayer(lihatProfile, javax.swing.JLayeredPane.DEFAULT_LAYER);
         layeredPane.setLayer(Layout_transaksi, javax.swing.JLayeredPane.DEFAULT_LAYER);
         layeredPane.setLayer(Layout_riwayat, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        layeredPane.setLayer(Layout_profile, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         bg.add(layeredPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 130, 710, 410));
 
@@ -507,12 +675,18 @@ public class Kasir extends javax.swing.JFrame {
         setColor(btn_profile);
         resetColor(btn_riwayat);
         resetColor(btn_transaksi);
-        switchPanels(Layout_profile);
+        switchPanels(lihatProfile);
         layoutActive="btn_profile";
         
         tittleProfile y  = new tittleProfile();
         x=y;
         x.ubah();
+        
+        user kasir = new user(id_user);
+        textNama.setText(kasir.nama);
+        textNoTelp.setText(kasir.no_telp);
+        textEmail.setText(kasir.email);
+        textJabatan.setText(kasir.jabatan);
     }//GEN-LAST:event_btn_profileMousePressed
 
     private void btn_logoutMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_logoutMousePressed
@@ -585,6 +759,69 @@ public class Kasir extends javax.swing.JFrame {
         kolom = tabelTransaksi.getSelectedColumn();
     }//GEN-LAST:event_tabelTransaksiMouseClicked
 
+    private void gantiPasswordMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gantiPasswordMouseClicked
+        switchPanels(passwordProfile);
+    }//GEN-LAST:event_gantiPasswordMouseClicked
+
+    private void editDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editDataMouseClicked
+        switchPanels(editProfile);
+        user kasir = new user(id_user);
+        nama1.setText(kasir.nama);
+        no_telp1.setText(kasir.no_telp);
+        email1.setText(kasir.email);
+        jabatan1.setText(kasir.jabatan);
+    }//GEN-LAST:event_editDataMouseClicked
+
+    private void backEditProfileMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backEditProfileMouseClicked
+        switchPanels(lihatProfile);
+        user kasir = new user(id_user);
+        textNama.setText(kasir.nama);
+        textNoTelp.setText(kasir.no_telp);
+        textEmail.setText(kasir.email);
+        textJabatan.setText(kasir.jabatan);
+    }//GEN-LAST:event_backEditProfileMouseClicked
+
+    private void saveEditProfileMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_saveEditProfileMouseClicked
+        try{
+            sql="UPDATE user SET nama='"+nama1.getText()+"',no_telp='"+no_telp1.getText()+"',email='"+email1.getText()+"',foto=NULL WHERE id_user='"+id_user+"'";
+            stat.executeUpdate(sql);
+
+            JOptionPane.showMessageDialog(null, "Berhasil mengupdate data");
+        }catch(Exception e){
+            System.out.print(e);
+        }
+    }//GEN-LAST:event_saveEditProfileMouseClicked
+
+    private void passwordSaveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passwordSaveMouseClicked
+        try{
+            sql="SELECT password FROM user WHERE id_user='"+id_user+"'";
+            rs=stat.executeQuery(sql);
+            rs.next();
+            if(passwordLama.getText().equals(rs.getString(1))){
+                sql="UPDATE user SET password='"+passwordBaru.getText()+"'WHERE id_user='"+id_user+"'";
+                stat.execute(sql);
+                JOptionPane.showMessageDialog(null, "Password berhasil diupdate");
+            }else{
+                JOptionPane.showMessageDialog(null, "Password salah");
+            }
+            
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
+            
+        
+        
+    }//GEN-LAST:event_passwordSaveMouseClicked
+
+    private void passwordCancelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passwordCancelMouseClicked
+        switchPanels(lihatProfile);
+        user kasir = new user(id_user);
+        textNama.setText(kasir.nama);
+        textNoTelp.setText(kasir.no_telp);
+        textEmail.setText(kasir.email);
+        textJabatan.setText(kasir.jabatan);
+    }//GEN-LAST:event_passwordCancelMouseClicked
+
     
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -594,11 +831,29 @@ public class Kasir extends javax.swing.JFrame {
             }
         });
     }
+    
+    public class user{
+        String nama,no_telp,email,jabatan;
+        public user(int id){
+            try{
+                sql="Select nama,no_telp,email,jabatan From user Where id_user='"+id+"'";
+                rs=stat.executeQuery(sql);
+                rs.next();
+                nama=rs.getString(1);
+                no_telp=rs.getString(2);
+                email=rs.getString(3);
+                jabatan=rs.getString(4);
+            }catch(Exception e){
+                System.out.print(e);
+            }
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel Foto;
+    private javax.swing.JPanel Identitas;
     private javax.swing.JLabel Kembali;
     private javax.swing.JLabel Kembali2;
-    private javax.swing.JPanel Layout_profile;
     private javax.swing.JPanel Layout_riwayat;
     private javax.swing.JPanel Layout_transaksi;
     private javax.swing.JButton Proses;
@@ -608,19 +863,29 @@ public class Kasir extends javax.swing.JFrame {
     private javax.swing.JLabel Total_harga2;
     private javax.swing.JLabel Uang;
     private javax.swing.JTextField Uang2;
+    private javax.swing.JButton backEditProfile;
     private javax.swing.JPanel bg;
+    private javax.swing.JButton browseEditProfile;
     private javax.swing.JPanel btn_logout;
     private javax.swing.JPanel btn_profile;
     private javax.swing.JPanel btn_riwayat;
     private javax.swing.JPanel btn_transaksi;
-    private javax.swing.JTextField email;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton editData;
+    private javax.swing.JPanel editProfile;
+    private javax.swing.JTextField email1;
+    private javax.swing.JButton gantiPassword;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -628,17 +893,29 @@ public class Kasir extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JLabel jabatan;
+    private javax.swing.JLabel jabatan1;
+    private javax.swing.JPanel kolomPassword;
     private javax.swing.JLayeredPane layeredPane;
-    private javax.swing.JTextField nama;
-    private javax.swing.JTextField no_telp;
+    private javax.swing.JPanel lihatProfile;
+    private javax.swing.JTextField nama1;
+    private javax.swing.JTextField no_telp1;
+    private javax.swing.JTextField passwordBaru;
+    private javax.swing.JButton passwordCancel;
+    private javax.swing.JTextField passwordLama;
+    private javax.swing.JPanel passwordProfile;
+    private javax.swing.JButton passwordSave;
+    private javax.swing.JButton saveEditProfile;
     private javax.swing.JTable tabelTransaksi;
+    private javax.swing.JLabel textEmail;
+    private javax.swing.JLabel textJabatan;
+    private javax.swing.JLabel textNama;
+    private javax.swing.JLabel textNoTelp;
     private javax.swing.JLabel txt_Tittle;
     // End of variables declaration//GEN-END:variables
 

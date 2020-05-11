@@ -45,6 +45,7 @@ public class Manager extends javax.swing.JFrame {
         setColor(btn_dataKasir);
         switchPanels(Layout_dataKasir);
         setTableData("Kasir",kasirTable);
+        txt_Tittle.setText("Data Kasir");
     }
     
     public Manager() {
@@ -97,14 +98,6 @@ public class Manager extends javax.swing.JFrame {
         Tittle = new javax.swing.JPanel();
         txt_Tittle = new javax.swing.JLabel();
         layeredPane = new javax.swing.JLayeredPane();
-        Layout_dataKasir = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        kasirTable = new javax.swing.JTable();
-        dataKasirTampilkan = new javax.swing.JButton();
-        dataKasirHapus = new javax.swing.JButton();
-        Layout_dataKaryawan = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        karyawanTable = new javax.swing.JTable();
         Layout_tambahPekerja = new javax.swing.JPanel();
         lbl_img = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
@@ -122,6 +115,14 @@ public class Manager extends javax.swing.JFrame {
         jabatan1 = new javax.swing.JComboBox();
         btnImage = new javax.swing.JButton();
         add = new javax.swing.JButton();
+        Layout_dataKasir = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        kasirTable = new javax.swing.JTable();
+        dataKasirTampilkan = new javax.swing.JButton();
+        dataKasirHapus = new javax.swing.JButton();
+        Layout_dataKaryawan = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        karyawanTable = new javax.swing.JTable();
         editProfile = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
@@ -360,6 +361,77 @@ public class Manager extends javax.swing.JFrame {
 
         bg.add(Tittle, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 30, 720, 100));
 
+        Layout_tambahPekerja.setBackground(new java.awt.Color(255, 255, 255));
+        Layout_tambahPekerja.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lbl_img.setBackground(new java.awt.Color(220, 220, 220));
+        Layout_tambahPekerja.add(lbl_img, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 50, 130, 130));
+
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        nama1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jPanel4.add(nama1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 50, 340, 30));
+
+        jLabel26.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel26.setText("Nama  :");
+        jPanel4.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, -1, 30));
+
+        jLabel27.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel27.setText("No. telp :");
+        jPanel4.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, -1, 30));
+
+        no_telp1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jPanel4.add(no_telp1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, 340, 30));
+
+        jLabel28.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel28.setText("Email   :");
+        jPanel4.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, -1, 30));
+
+        password1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jPanel4.add(password1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 290, 340, 30));
+
+        jLabel29.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel29.setText("Password :");
+        jPanel4.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, -1, 30));
+
+        jLabel30.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel30.setText("Jabatan :");
+        jPanel4.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, -1, 30));
+
+        jLabel31.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel31.setText("Username :");
+        jPanel4.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, -1, 30));
+
+        email1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jPanel4.add(email1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, 340, 30));
+
+        username1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jPanel4.add(username1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 240, 340, 30));
+
+        jabatan1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jabatan1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-- Pilih jabatan --", "Kasir", "Karyawan" }));
+        jPanel4.add(jabatan1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 196, 340, 30));
+
+        Layout_tambahPekerja.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 490, 390));
+
+        btnImage.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnImage.setText("Browse");
+        btnImage.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnImageActionPerformed(evt);
+            }
+        });
+        Layout_tambahPekerja.add(btnImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 190, 90, 30));
+
+        add.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        add.setText("Add");
+        add.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                addMouseClicked(evt);
+            }
+        });
+        Layout_tambahPekerja.add(add, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 340, 100, 50));
+
         Layout_dataKasir.setBackground(new java.awt.Color(255, 255, 255));
         Layout_dataKasir.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -469,77 +541,6 @@ public class Manager extends javax.swing.JFrame {
         }
 
         Layout_dataKaryawan.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 700, 400));
-
-        Layout_tambahPekerja.setBackground(new java.awt.Color(255, 255, 255));
-        Layout_tambahPekerja.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        lbl_img.setBackground(new java.awt.Color(220, 220, 220));
-        Layout_tambahPekerja.add(lbl_img, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 50, 130, 130));
-
-        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        nama1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jPanel4.add(nama1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 50, 340, 30));
-
-        jLabel26.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel26.setText("Nama  :");
-        jPanel4.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, -1, 30));
-
-        jLabel27.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel27.setText("No. telp :");
-        jPanel4.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, -1, 30));
-
-        no_telp1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jPanel4.add(no_telp1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, 340, 30));
-
-        jLabel28.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel28.setText("Email   :");
-        jPanel4.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, -1, 30));
-
-        password1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jPanel4.add(password1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 290, 340, 30));
-
-        jLabel29.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel29.setText("Password :");
-        jPanel4.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, -1, 30));
-
-        jLabel30.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel30.setText("Jabatan :");
-        jPanel4.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, -1, 30));
-
-        jLabel31.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel31.setText("Username :");
-        jPanel4.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, -1, 30));
-
-        email1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jPanel4.add(email1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, 340, 30));
-
-        username1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jPanel4.add(username1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 240, 340, 30));
-
-        jabatan1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jabatan1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-- Pilih jabatan --", "Kasir", "Karyawan" }));
-        jPanel4.add(jabatan1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 196, 340, 30));
-
-        Layout_tambahPekerja.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 490, 390));
-
-        btnImage.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        btnImage.setText("Browse");
-        btnImage.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnImageActionPerformed(evt);
-            }
-        });
-        Layout_tambahPekerja.add(btnImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 190, 90, 30));
-
-        add.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        add.setText("Add");
-        add.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                addMouseClicked(evt);
-            }
-        });
-        Layout_tambahPekerja.add(add, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 340, 100, 50));
 
         editProfile.setBackground(new java.awt.Color(255, 255, 255));
         editProfile.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -858,9 +859,9 @@ public class Manager extends javax.swing.JFrame {
                     .addComponent(Layout_tambahPekerja, javax.swing.GroupLayout.PREFERRED_SIZE, 537, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
+        layeredPane.setLayer(Layout_tambahPekerja, javax.swing.JLayeredPane.DEFAULT_LAYER);
         layeredPane.setLayer(Layout_dataKasir, javax.swing.JLayeredPane.DEFAULT_LAYER);
         layeredPane.setLayer(Layout_dataKaryawan, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        layeredPane.setLayer(Layout_tambahPekerja, javax.swing.JLayeredPane.DEFAULT_LAYER);
         layeredPane.setLayer(editProfile, javax.swing.JLayeredPane.DEFAULT_LAYER);
         layeredPane.setLayer(lihatProfile, javax.swing.JLayeredPane.DEFAULT_LAYER);
         layeredPane.setLayer(Layout_riwayatTransaksi, javax.swing.JLayeredPane.DEFAULT_LAYER);

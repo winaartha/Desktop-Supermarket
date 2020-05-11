@@ -7,7 +7,6 @@ import java.sql.Statement;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-
 public class Karyawan extends javax.swing.JFrame {
 
     Connection con;
@@ -27,39 +26,16 @@ public class Karyawan extends javax.swing.JFrame {
         stat = DB.stm;
         initComponents();
                      
-        setColor(btn_transaksi);
-        switchPanels(Layout_transaksi);
+        setColor(btn_inputBarang);
+        switchPanels(Layout_InputBarang);
+        layoutActive="btn_inputBarang";
+        txt_Tittle.setText("Input Barang");
     }
     
     public Karyawan() {
         initComponents();
     }
-
-     public class setTittle{
-        public void ubah(){
-            txt_Tittle.setText("");
-        }
-    }
-    setTittle x;
-    
-    public class tittleTransaksi extends setTittle{
-        public void ubah(){
-            txt_Tittle.setText("Transaksi");
-        }
-    }
-    
-    public class tittleRiwayat extends setTittle{
-        public void ubah(){
-            txt_Tittle.setText("Riwayat");
-        }
-    }
-    
-    public class tittleProfile extends setTittle{
-        public void ubah(){
-            txt_Tittle.setText("Profile");
-        }
-    }
-    
+  
     void setColor(JPanel panel){
         panel.setBackground(new Color(85,65,118));
     }  
@@ -80,7 +56,7 @@ public class Karyawan extends javax.swing.JFrame {
 
         bg = new javax.swing.JPanel();
         Side_panel = new javax.swing.JPanel();
-        btn_transaksi = new javax.swing.JPanel();
+        btn_inputBarang = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         btn_riwayat = new javax.swing.JPanel();
@@ -94,31 +70,57 @@ public class Karyawan extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
+        btn_listBarang = new javax.swing.JPanel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
         Tittle = new javax.swing.JPanel();
         txt_Tittle = new javax.swing.JLabel();
         layeredPane = new javax.swing.JLayeredPane();
-        Layout_riwayat = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        Layout_transaksi = new javax.swing.JPanel();
+        Layout_InputBarang = new javax.swing.JPanel();
         Total_harga = new javax.swing.JLabel();
         Total_harga2 = new javax.swing.JLabel();
         Kembali2 = new javax.swing.JLabel();
         Proses = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        tabelTransaksi = new javax.swing.JTable();
-        Layout_profile = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        nama = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        no_telp = new javax.swing.JTextField();
-        jLabel11 = new javax.swing.JLabel();
-        email = new javax.swing.JTextField();
-        jLabel12 = new javax.swing.JLabel();
-        jabatan = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        tabelInputBarang = new javax.swing.JTable();
+        lihatProfile = new javax.swing.JPanel();
+        Foto = new javax.swing.JPanel();
+        Identitas = new javax.swing.JPanel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        textNama = new javax.swing.JLabel();
+        textNoTelp = new javax.swing.JLabel();
+        textEmail = new javax.swing.JLabel();
+        textJabatan = new javax.swing.JLabel();
+        gantiPassword = new javax.swing.JButton();
+        editData = new javax.swing.JButton();
+        passwordProfile = new javax.swing.JPanel();
+        passwordSave = new javax.swing.JButton();
+        passwordCancel = new javax.swing.JButton();
+        kolomPassword = new javax.swing.JPanel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
+        editProfile = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
+        nama1 = new javax.swing.JTextField();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        no_telp1 = new javax.swing.JTextField();
+        jLabel18 = new javax.swing.JLabel();
+        email1 = new javax.swing.JTextField();
+        jLabel19 = new javax.swing.JLabel();
+        jabatan1 = new javax.swing.JLabel();
+        backEditProfile = new javax.swing.JButton();
+        saveEditProfile = new javax.swing.JButton();
+        browseEditProfile = new javax.swing.JButton();
+        Layout_riwayat = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -131,29 +133,29 @@ public class Karyawan extends javax.swing.JFrame {
         Side_panel.setBackground(new java.awt.Color(54, 33, 89));
         Side_panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btn_transaksi.setBackground(new java.awt.Color(64, 43, 100));
-        btn_transaksi.addMouseListener(new java.awt.event.MouseAdapter() {
+        btn_inputBarang.setBackground(new java.awt.Color(64, 43, 100));
+        btn_inputBarang.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btn_transaksiMouseEntered(evt);
+                btn_inputBarangMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                btn_transaksiMouseExited(evt);
+                btn_inputBarangMouseExited(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                btn_transaksiMousePressed(evt);
+                btn_inputBarangMousePressed(evt);
             }
         });
-        btn_transaksi.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        btn_inputBarang.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/kruwell/program/images/icons8_transaction_15px.png"))); // NOI18N
-        btn_transaksi.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 20, 40));
+        btn_inputBarang.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 20, 40));
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(240, 240, 240));
-        jLabel10.setText("Barang");
-        btn_transaksi.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 0, 127, 40));
+        jLabel10.setText("Input Barang");
+        btn_inputBarang.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 0, 127, 40));
 
-        Side_panel.add(btn_transaksi, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 210, 40));
+        Side_panel.add(btn_inputBarang, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 210, 40));
 
         btn_riwayat.setBackground(new java.awt.Color(64, 43, 100));
         btn_riwayat.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -177,7 +179,7 @@ public class Karyawan extends javax.swing.JFrame {
         jLabel4.setText("Riwayat");
         btn_riwayat.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 0, 127, 40));
 
-        Side_panel.add(btn_riwayat, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 210, 40));
+        Side_panel.add(btn_riwayat, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 210, 40));
 
         btn_profile.setBackground(new java.awt.Color(64, 43, 100));
         btn_profile.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -233,6 +235,30 @@ public class Karyawan extends javax.swing.JFrame {
         Side_panel.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, -1, -1));
         Side_panel.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 190, 10));
 
+        btn_listBarang.setBackground(new java.awt.Color(64, 43, 100));
+        btn_listBarang.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btn_listBarangMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btn_listBarangMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btn_listBarangMousePressed(evt);
+            }
+        });
+        btn_listBarang.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/kruwell/program/images/icons8_transaction_15px.png"))); // NOI18N
+        btn_listBarang.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 20, 40));
+
+        jLabel15.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(240, 240, 240));
+        jLabel15.setText("List Barang");
+        btn_listBarang.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 0, 127, 40));
+
+        Side_panel.add(btn_listBarang, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 210, 40));
+
         bg.add(Side_panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(-8, 0, 220, 540));
 
         Tittle.setBackground(new java.awt.Color(122, 72, 221));
@@ -244,6 +270,251 @@ public class Karyawan extends javax.swing.JFrame {
         Tittle.add(txt_Tittle, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, 470, 40));
 
         bg.add(Tittle, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 30, 720, 100));
+
+        Layout_InputBarang.setBackground(new java.awt.Color(255, 255, 255));
+        Layout_InputBarang.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Total_harga.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        Total_harga.setText("Total Harga");
+        Layout_InputBarang.add(Total_harga, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 240, 90, 30));
+        Layout_InputBarang.add(Total_harga2, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 240, 120, 30));
+        Layout_InputBarang.add(Kembali2, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 300, 120, 30));
+
+        Proses.setText("Proses");
+        Layout_InputBarang.add(Proses, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 290, -1, -1));
+
+        tabelInputBarang.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        tabelInputBarang.setForeground(new java.awt.Color(12, 12, 12));
+        tabelInputBarang.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "Kode", "Nama", "Harga", "Qty", "Total"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class
+            };
+            boolean[] canEdit = new boolean [] {
+                true, false, true, true, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tabelInputBarang.setGridColor(new java.awt.Color(240, 240, 240));
+        tabelInputBarang.setRowHeight(20);
+        tabelInputBarang.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabelInputBarangMouseClicked(evt);
+            }
+        });
+        tabelInputBarang.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tabelInputBarangKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tabelInputBarangKeyTyped(evt);
+            }
+        });
+        jScrollPane2.setViewportView(tabelInputBarang);
+        if (tabelInputBarang.getColumnModel().getColumnCount() > 0) {
+            tabelInputBarang.getColumnModel().getColumn(0).setResizable(false);
+            tabelInputBarang.getColumnModel().getColumn(1).setResizable(false);
+            tabelInputBarang.getColumnModel().getColumn(2).setResizable(false);
+            tabelInputBarang.getColumnModel().getColumn(3).setResizable(false);
+            tabelInputBarang.getColumnModel().getColumn(4).setResizable(false);
+        }
+
+        Layout_InputBarang.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 700, 223));
+
+        lihatProfile.setBackground(new java.awt.Color(255, 255, 255));
+        lihatProfile.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        javax.swing.GroupLayout FotoLayout = new javax.swing.GroupLayout(Foto);
+        Foto.setLayout(FotoLayout);
+        FotoLayout.setHorizontalGroup(
+            FotoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 130, Short.MAX_VALUE)
+        );
+        FotoLayout.setVerticalGroup(
+            FotoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 130, Short.MAX_VALUE)
+        );
+
+        lihatProfile.add(Foto, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 50, 130, 130));
+
+        Identitas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel20.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel20.setText("Nama  :");
+        Identitas.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, -1, 30));
+
+        jLabel21.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel21.setText("No. telp :");
+        Identitas.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, -1, 30));
+
+        jLabel24.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel24.setText("Email   :");
+        Identitas.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, -1, 30));
+
+        jLabel25.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel25.setText("Jabatan :");
+        Identitas.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, -1, 30));
+
+        textNama.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        Identitas.add(textNama, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 50, 340, 30));
+
+        textNoTelp.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        Identitas.add(textNoTelp, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, 340, 30));
+
+        textEmail.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        Identitas.add(textEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, 340, 30));
+
+        textJabatan.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        Identitas.add(textJabatan, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 200, 340, 30));
+
+        lihatProfile.add(Identitas, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 490, 280));
+
+        gantiPassword.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        gantiPassword.setText("Ganti Password");
+        gantiPassword.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                gantiPasswordMouseClicked(evt);
+            }
+        });
+        lihatProfile.add(gantiPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 340, -1, -1));
+
+        editData.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        editData.setText("Edit data");
+        editData.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                editDataMouseClicked(evt);
+            }
+        });
+        lihatProfile.add(editData, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 340, -1, -1));
+
+        passwordProfile.setBackground(new java.awt.Color(255, 255, 255));
+        passwordProfile.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        passwordSave.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        passwordSave.setText("Save");
+        passwordSave.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                passwordSaveMouseClicked(evt);
+            }
+        });
+        passwordProfile.add(passwordSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 340, -1, -1));
+
+        passwordCancel.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        passwordCancel.setText("Cancel");
+        passwordCancel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                passwordCancelMouseClicked(evt);
+            }
+        });
+        passwordProfile.add(passwordCancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 340, -1, -1));
+
+        kolomPassword.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel22.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel22.setText("Password Lama  :");
+        kolomPassword.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, -1, 30));
+
+        jLabel23.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel23.setText("Password Baru   :");
+        kolomPassword.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, -1, 30));
+
+        jTextField1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        kolomPassword.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 150, 330, 30));
+
+        jTextField2.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        kolomPassword.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 100, 330, 30));
+
+        passwordProfile.add(kolomPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 630, 280));
+
+        editProfile.setBackground(new java.awt.Color(255, 255, 255));
+        editProfile.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 130, Short.MAX_VALUE)
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 130, Short.MAX_VALUE)
+        );
+
+        editProfile.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 50, 130, 130));
+
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        nama1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jPanel4.add(nama1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 50, 340, 30));
+
+        jLabel16.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel16.setText("Nama  :");
+        jPanel4.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, -1, 30));
+
+        jLabel17.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel17.setText("No. telp :");
+        jPanel4.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, -1, 30));
+
+        no_telp1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jPanel4.add(no_telp1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, 340, 30));
+
+        jLabel18.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel18.setText("Email   :");
+        jPanel4.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, -1, 30));
+
+        email1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jPanel4.add(email1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, 340, 30));
+
+        jLabel19.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel19.setText("Jabatan :");
+        jPanel4.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, -1, 30));
+
+        jabatan1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jPanel4.add(jabatan1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 200, 340, 30));
+
+        editProfile.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 490, 280));
+
+        backEditProfile.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        backEditProfile.setText("Back");
+        backEditProfile.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                backEditProfileMouseClicked(evt);
+            }
+        });
+        editProfile.add(backEditProfile, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 350, -1, -1));
+
+        saveEditProfile.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        saveEditProfile.setText("Save");
+        saveEditProfile.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                saveEditProfileMouseClicked(evt);
+            }
+        });
+        editProfile.add(saveEditProfile, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 350, -1, -1));
+
+        browseEditProfile.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        browseEditProfile.setText("Browse");
+        editProfile.add(browseEditProfile, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 190, 90, 30));
 
         Layout_riwayat.setBackground(new java.awt.Color(255, 255, 255));
         Layout_riwayat.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -281,162 +552,65 @@ public class Karyawan extends javax.swing.JFrame {
 
         Layout_riwayat.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 670, 380));
 
-        Layout_transaksi.setBackground(new java.awt.Color(255, 255, 255));
-        Layout_transaksi.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        Total_harga.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        Total_harga.setText("Total Harga");
-        Layout_transaksi.add(Total_harga, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 240, 90, 30));
-        Layout_transaksi.add(Total_harga2, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 240, 120, 30));
-        Layout_transaksi.add(Kembali2, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 300, 120, 30));
-
-        Proses.setText("Proses");
-        Layout_transaksi.add(Proses, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 290, -1, -1));
-
-        tabelTransaksi.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        tabelTransaksi.setForeground(new java.awt.Color(12, 12, 12));
-        tabelTransaksi.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
-            },
-            new String [] {
-                "Kode", "Nama", "Harga", "Qty", "Total"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class
-            };
-            boolean[] canEdit = new boolean [] {
-                true, false, true, true, false
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        tabelTransaksi.setGridColor(new java.awt.Color(240, 240, 240));
-        tabelTransaksi.setRowHeight(20);
-        tabelTransaksi.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tabelTransaksiMouseClicked(evt);
-            }
-        });
-        tabelTransaksi.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                tabelTransaksiKeyPressed(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                tabelTransaksiKeyTyped(evt);
-            }
-        });
-        jScrollPane2.setViewportView(tabelTransaksi);
-        if (tabelTransaksi.getColumnModel().getColumnCount() > 0) {
-            tabelTransaksi.getColumnModel().getColumn(0).setResizable(false);
-            tabelTransaksi.getColumnModel().getColumn(1).setResizable(false);
-            tabelTransaksi.getColumnModel().getColumn(2).setResizable(false);
-            tabelTransaksi.getColumnModel().getColumn(3).setResizable(false);
-            tabelTransaksi.getColumnModel().getColumn(4).setResizable(false);
-        }
-
-        Layout_transaksi.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 700, 223));
-
-        Layout_profile.setBackground(new java.awt.Color(255, 255, 255));
-        Layout_profile.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 130, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 130, Short.MAX_VALUE)
-        );
-
-        Layout_profile.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 50, 130, 130));
-
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel2.add(nama, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 50, 340, 30));
-
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel1.setText("Nama");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, -1, 30));
-
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel2.setText("No. telp");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, -1, 30));
-        jPanel2.add(no_telp, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, 340, 30));
-
-        jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel11.setText("Email");
-        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, -1, 30));
-        jPanel2.add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, 340, 30));
-
-        jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel12.setText("Jabatan");
-        jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, -1, 30));
-        jPanel2.add(jabatan, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 200, 340, 30));
-
-        Layout_profile.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 490, 280));
-
-        jButton1.setText("Edit data");
-        Layout_profile.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 350, -1, -1));
-
         javax.swing.GroupLayout layeredPaneLayout = new javax.swing.GroupLayout(layeredPane);
         layeredPane.setLayout(layeredPaneLayout);
         layeredPaneLayout.setHorizontalGroup(
             layeredPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 720, Short.MAX_VALUE)
+            .addGap(0, 755, Short.MAX_VALUE)
+            .addGroup(layeredPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layeredPaneLayout.createSequentialGroup()
+                    .addComponent(Layout_InputBarang, javax.swing.GroupLayout.PREFERRED_SIZE, 737, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 18, Short.MAX_VALUE)))
+            .addGroup(layeredPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layeredPaneLayout.createSequentialGroup()
+                    .addComponent(Layout_riwayat, javax.swing.GroupLayout.PREFERRED_SIZE, 737, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 18, Short.MAX_VALUE)))
             .addGroup(layeredPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layeredPaneLayout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(Layout_profile, javax.swing.GroupLayout.PREFERRED_SIZE, 720, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(passwordProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 755, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
             .addGroup(layeredPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layeredPaneLayout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(Layout_transaksi, javax.swing.GroupLayout.PREFERRED_SIZE, 720, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(editProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 755, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
             .addGroup(layeredPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layeredPaneLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(Layout_riwayat, javax.swing.GroupLayout.PREFERRED_SIZE, 720, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addComponent(lihatProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 747, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 8, Short.MAX_VALUE)))
         );
         layeredPaneLayout.setVerticalGroup(
             layeredPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 410, Short.MAX_VALUE)
+            .addGap(0, 471, Short.MAX_VALUE)
+            .addGroup(layeredPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layeredPaneLayout.createSequentialGroup()
+                    .addComponent(Layout_InputBarang, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 31, Short.MAX_VALUE)))
+            .addGroup(layeredPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layeredPaneLayout.createSequentialGroup()
+                    .addComponent(Layout_riwayat, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 31, Short.MAX_VALUE)))
             .addGroup(layeredPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layeredPaneLayout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(Layout_profile, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(passwordProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 471, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
             .addGroup(layeredPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layeredPaneLayout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(Layout_transaksi, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(editProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 471, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
             .addGroup(layeredPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layeredPaneLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(Layout_riwayat, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addComponent(lihatProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 455, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 16, Short.MAX_VALUE)))
         );
+        layeredPane.setLayer(Layout_InputBarang, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        layeredPane.setLayer(lihatProfile, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        layeredPane.setLayer(passwordProfile, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        layeredPane.setLayer(editProfile, javax.swing.JLayeredPane.DEFAULT_LAYER);
         layeredPane.setLayer(Layout_riwayat, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        layeredPane.setLayer(Layout_transaksi, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        layeredPane.setLayer(Layout_profile, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         bg.add(layeredPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 130, 710, 410));
 
@@ -455,27 +629,25 @@ public class Karyawan extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btn_transaksiMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_transaksiMouseEntered
-        setColor(btn_transaksi);
-    }//GEN-LAST:event_btn_transaksiMouseEntered
+    private void btn_inputBarangMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_inputBarangMouseEntered
+        setColor(btn_inputBarang);
+    }//GEN-LAST:event_btn_inputBarangMouseEntered
 
-    private void btn_transaksiMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_transaksiMouseExited
+    private void btn_inputBarangMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_inputBarangMouseExited
         if(!layoutActive.equals("btn_transaksi")){
-            resetColor(btn_transaksi);
+            resetColor(btn_inputBarang);
         }
-    }//GEN-LAST:event_btn_transaksiMouseExited
+    }//GEN-LAST:event_btn_inputBarangMouseExited
 
-    private void btn_transaksiMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_transaksiMousePressed
-        setColor(btn_transaksi);
+    private void btn_inputBarangMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_inputBarangMousePressed
+        setColor(btn_inputBarang);
         resetColor(btn_riwayat);
         resetColor(btn_profile);
-        switchPanels(Layout_transaksi);
+        resetColor(btn_listBarang);
+        switchPanels(Layout_InputBarang);
         layoutActive="btn_transaksi";
-
-        tittleTransaksi y  = new tittleTransaksi();
-        x=y;
-        x.ubah();
-    }//GEN-LAST:event_btn_transaksiMousePressed
+        txt_Tittle.setText("Input Barang");
+    }//GEN-LAST:event_btn_inputBarangMousePressed
 
     private void btn_riwayatMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_riwayatMouseEntered
         setColor(btn_riwayat);
@@ -489,14 +661,13 @@ public class Karyawan extends javax.swing.JFrame {
 
     private void btn_riwayatMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_riwayatMousePressed
         setColor(btn_riwayat);
-        resetColor(btn_transaksi);
+        resetColor(btn_inputBarang);
         resetColor(btn_profile);
+        resetColor(btn_listBarang);
         switchPanels(Layout_riwayat);
         layoutActive="btn_riwayat";
-
-        tittleRiwayat y  = new tittleRiwayat();
-        x=y;
-        x.ubah();
+        txt_Tittle.setText("Riwayat");
+        
     }//GEN-LAST:event_btn_riwayatMousePressed
 
     private void btn_profileMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_profileMouseEntered
@@ -512,13 +683,17 @@ public class Karyawan extends javax.swing.JFrame {
     private void btn_profileMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_profileMousePressed
         setColor(btn_profile);
         resetColor(btn_riwayat);
-        resetColor(btn_transaksi);
-        switchPanels(Layout_profile);
+        resetColor(btn_inputBarang);
+        switchPanels(lihatProfile);
+        resetColor(btn_listBarang);
         layoutActive="btn_profile";
-
-        tittleProfile y  = new tittleProfile();
-        x=y;
-        x.ubah();
+        txt_Tittle.setText("Profile");
+        
+        user karyawan = new user(id_user);
+        textNama.setText(karyawan.nama);
+        textNoTelp.setText(karyawan.no_telp);
+        textEmail.setText(karyawan.email);
+        textJabatan.setText(karyawan.jabatan);
     }//GEN-LAST:event_btn_profileMousePressed
 
     private void btn_logoutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_logoutMouseEntered
@@ -534,91 +709,147 @@ public class Karyawan extends javax.swing.JFrame {
         new Login().setVisible(true);
     }//GEN-LAST:event_btn_logoutMousePressed
 
-    private void tabelTransaksiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelTransaksiMouseClicked
-        baris = tabelTransaksi.getSelectedRow();
-        kolom = tabelTransaksi.getSelectedColumn();
-    }//GEN-LAST:event_tabelTransaksiMouseClicked
+    private void tabelInputBarangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelInputBarangMouseClicked
+        baris = tabelInputBarang.getSelectedRow();
+        kolom = tabelInputBarang.getSelectedColumn();
+    }//GEN-LAST:event_tabelInputBarangMouseClicked
 
-    private void tabelTransaksiKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tabelTransaksiKeyPressed
+    private void tabelInputBarangKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tabelInputBarangKeyPressed
 
-    }//GEN-LAST:event_tabelTransaksiKeyPressed
+    }//GEN-LAST:event_tabelInputBarangKeyPressed
 
-    private void tabelTransaksiKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tabelTransaksiKeyTyped
-        int id_barang = (int) tabelTransaksi.getModel().getValueAt(baris,1);
-        //        JOptionPane.showMessageDialog(null, id_barang);
+    private void tabelInputBarangKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tabelInputBarangKeyTyped
+ 
+        
+    }//GEN-LAST:event_tabelInputBarangKeyTyped
+
+    private void btn_listBarangMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_listBarangMouseEntered
+        setColor(btn_listBarang);
+    }//GEN-LAST:event_btn_listBarangMouseEntered
+
+    private void btn_listBarangMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_listBarangMouseExited
+        resetColor(btn_listBarang);
+    }//GEN-LAST:event_btn_listBarangMouseExited
+
+    private void btn_listBarangMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_listBarangMousePressed
+        setColor(btn_listBarang);
+        resetColor(btn_inputBarang);
+        resetColor(btn_riwayat);
+        resetColor(btn_profile);
+        switchPanels(Layout_InputBarang);
+        layoutActive="btn_transaksi";
+        txt_Tittle.setText("List Barang");
+        
+    }//GEN-LAST:event_btn_listBarangMousePressed
+
+    private void passwordSaveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passwordSaveMouseClicked
+
+    }//GEN-LAST:event_passwordSaveMouseClicked
+
+    private void passwordCancelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passwordCancelMouseClicked
+        switchPanels(lihatProfile);
+        user admin = new user(id_user);
+        textNama.setText(admin.nama);
+        textNoTelp.setText(admin.no_telp);
+        textEmail.setText(admin.email);
+        textJabatan.setText(admin.jabatan);
+    }//GEN-LAST:event_passwordCancelMouseClicked
+
+    private void backEditProfileMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backEditProfileMouseClicked
+        switchPanels(lihatProfile);
+        user karyawan = new user(id_user);
+        textNama.setText(karyawan.nama);
+        textNoTelp.setText(karyawan.no_telp);
+        textEmail.setText(karyawan.email);
+        textJabatan.setText(karyawan.jabatan);
+    }//GEN-LAST:event_backEditProfileMouseClicked
+
+    private void saveEditProfileMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_saveEditProfileMouseClicked
         try{
-            sql = "SELECT * FROM barang WHERE id_barang='"+id_barang+"'";
-            rs = stat.executeQuery(sql);
-            if(rs.next()){
-                if(id_barang == rs.getInt(id_barang)){
-                }
-            }
+            sql="UPDATE user SET nama='"+nama1.getText()+"',no_telp='"+no_telp1.getText()+"',email='"+email1.getText()+"',foto=NULL WHERE id_user='"+id_user+"'";
+            stat.executeUpdate(sql);
 
+            JOptionPane.showMessageDialog(null, "Berhasil mengupdate data");
         }catch(Exception e){
-
+            System.out.print(e);
         }
+    }//GEN-LAST:event_saveEditProfileMouseClicked
 
-        JOptionPane.showMessageDialog(null, id_barang);
-    }//GEN-LAST:event_tabelTransaksiKeyTyped
+    private void gantiPasswordMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gantiPasswordMouseClicked
+        switchPanels(passwordProfile);
+    }//GEN-LAST:event_gantiPasswordMouseClicked
 
-    /**
-     * @param args the command line arguments
-     */
+    private void editDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editDataMouseClicked
+        switchPanels(editProfile);
+        user karyawan = new user(id_user);
+        nama1.setText(karyawan.nama);
+        no_telp1.setText(karyawan.no_telp);
+        email1.setText(karyawan.email);
+        jabatan1.setText(karyawan.jabatan);
+    }//GEN-LAST:event_editDataMouseClicked
+
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Karyawan.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Karyawan.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Karyawan.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Karyawan.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Karyawan().setVisible(true);
             }
         });
     }
+    
+        public class user{
+        String nama,no_telp,email,jabatan;
+        public user(int id){
+            try{
+                sql="Select nama,no_telp,email,jabatan From user Where id_user='"+id+"'";
+                rs=stat.executeQuery(sql);
+                rs.next();
+                nama=rs.getString(1);
+                no_telp=rs.getString(2);
+                email=rs.getString(3);
+                jabatan=rs.getString(4);
+            }catch(Exception e){
+                System.out.print(e);
+            }
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel Foto;
+    private javax.swing.JPanel Identitas;
     private javax.swing.JLabel Kembali2;
-    private javax.swing.JPanel Layout_profile;
+    private javax.swing.JPanel Layout_InputBarang;
     private javax.swing.JPanel Layout_riwayat;
-    private javax.swing.JPanel Layout_transaksi;
     private javax.swing.JButton Proses;
     private javax.swing.JPanel Side_panel;
     private javax.swing.JPanel Tittle;
     private javax.swing.JLabel Total_harga;
     private javax.swing.JLabel Total_harga2;
+    private javax.swing.JButton backEditProfile;
     private javax.swing.JPanel bg;
+    private javax.swing.JButton browseEditProfile;
+    private javax.swing.JPanel btn_inputBarang;
+    private javax.swing.JPanel btn_listBarang;
     private javax.swing.JPanel btn_logout;
     private javax.swing.JPanel btn_profile;
     private javax.swing.JPanel btn_riwayat;
-    private javax.swing.JPanel btn_transaksi;
-    private javax.swing.JTextField email;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton editData;
+    private javax.swing.JPanel editProfile;
+    private javax.swing.JTextField email1;
+    private javax.swing.JButton gantiPassword;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -626,17 +857,29 @@ public class Karyawan extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JLabel jabatan;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JLabel jabatan1;
+    private javax.swing.JPanel kolomPassword;
     private javax.swing.JLayeredPane layeredPane;
-    private javax.swing.JTextField nama;
-    private javax.swing.JTextField no_telp;
-    private javax.swing.JTable tabelTransaksi;
+    private javax.swing.JPanel lihatProfile;
+    private javax.swing.JTextField nama1;
+    private javax.swing.JTextField no_telp1;
+    private javax.swing.JButton passwordCancel;
+    private javax.swing.JPanel passwordProfile;
+    private javax.swing.JButton passwordSave;
+    private javax.swing.JButton saveEditProfile;
+    private javax.swing.JTable tabelInputBarang;
+    private javax.swing.JLabel textEmail;
+    private javax.swing.JLabel textJabatan;
+    private javax.swing.JLabel textNama;
+    private javax.swing.JLabel textNoTelp;
     private javax.swing.JLabel txt_Tittle;
     // End of variables declaration//GEN-END:variables
 }

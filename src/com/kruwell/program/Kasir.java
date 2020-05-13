@@ -808,9 +808,6 @@ public class Kasir extends javax.swing.JFrame {
         }catch(Exception e){
             JOptionPane.showMessageDialog(this, e.getMessage());
         }
-            
-        
-        
     }//GEN-LAST:event_passwordSaveMouseClicked
 
     private void passwordCancelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passwordCancelMouseClicked

@@ -77,12 +77,6 @@ public class Karyawan extends javax.swing.JFrame {
         txt_Tittle = new javax.swing.JLabel();
         layeredPane = new javax.swing.JLayeredPane();
         Layout_InputBarang = new javax.swing.JPanel();
-        Total_harga = new javax.swing.JLabel();
-        Total_harga2 = new javax.swing.JLabel();
-        Kembali2 = new javax.swing.JLabel();
-        Proses = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        tabelInputBarang = new javax.swing.JTable();
         lihatProfile = new javax.swing.JPanel();
         Foto = new javax.swing.JPanel();
         Identitas = new javax.swing.JPanel();
@@ -273,73 +267,6 @@ public class Karyawan extends javax.swing.JFrame {
 
         Layout_InputBarang.setBackground(new java.awt.Color(255, 255, 255));
         Layout_InputBarang.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        Total_harga.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        Total_harga.setText("Total Harga");
-        Layout_InputBarang.add(Total_harga, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 240, 90, 30));
-        Layout_InputBarang.add(Total_harga2, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 240, 120, 30));
-        Layout_InputBarang.add(Kembali2, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 300, 120, 30));
-
-        Proses.setText("Proses");
-        Layout_InputBarang.add(Proses, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 290, -1, -1));
-
-        tabelInputBarang.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        tabelInputBarang.setForeground(new java.awt.Color(12, 12, 12));
-        tabelInputBarang.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
-            },
-            new String [] {
-                "Kode", "Nama", "Harga", "Qty", "Total"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class
-            };
-            boolean[] canEdit = new boolean [] {
-                true, false, true, true, false
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        tabelInputBarang.setGridColor(new java.awt.Color(240, 240, 240));
-        tabelInputBarang.setRowHeight(20);
-        tabelInputBarang.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tabelInputBarangMouseClicked(evt);
-            }
-        });
-        tabelInputBarang.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                tabelInputBarangKeyPressed(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                tabelInputBarangKeyTyped(evt);
-            }
-        });
-        jScrollPane2.setViewportView(tabelInputBarang);
-        if (tabelInputBarang.getColumnModel().getColumnCount() > 0) {
-            tabelInputBarang.getColumnModel().getColumn(0).setResizable(false);
-            tabelInputBarang.getColumnModel().getColumn(1).setResizable(false);
-            tabelInputBarang.getColumnModel().getColumn(2).setResizable(false);
-            tabelInputBarang.getColumnModel().getColumn(3).setResizable(false);
-            tabelInputBarang.getColumnModel().getColumn(4).setResizable(false);
-        }
-
-        Layout_InputBarang.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 700, 223));
 
         lihatProfile.setBackground(new java.awt.Color(255, 255, 255));
         lihatProfile.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -709,20 +636,6 @@ public class Karyawan extends javax.swing.JFrame {
         new Login().setVisible(true);
     }//GEN-LAST:event_btn_logoutMousePressed
 
-    private void tabelInputBarangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelInputBarangMouseClicked
-        baris = tabelInputBarang.getSelectedRow();
-        kolom = tabelInputBarang.getSelectedColumn();
-    }//GEN-LAST:event_tabelInputBarangMouseClicked
-
-    private void tabelInputBarangKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tabelInputBarangKeyPressed
-
-    }//GEN-LAST:event_tabelInputBarangKeyPressed
-
-    private void tabelInputBarangKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tabelInputBarangKeyTyped
- 
-        
-    }//GEN-LAST:event_tabelInputBarangKeyTyped
-
     private void btn_listBarangMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_listBarangMouseEntered
         setColor(btn_listBarang);
     }//GEN-LAST:event_btn_listBarangMouseEntered
@@ -816,14 +729,10 @@ public class Karyawan extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Foto;
     private javax.swing.JPanel Identitas;
-    private javax.swing.JLabel Kembali2;
     private javax.swing.JPanel Layout_InputBarang;
     private javax.swing.JPanel Layout_riwayat;
-    private javax.swing.JButton Proses;
     private javax.swing.JPanel Side_panel;
     private javax.swing.JPanel Tittle;
-    private javax.swing.JLabel Total_harga;
-    private javax.swing.JLabel Total_harga2;
     private javax.swing.JButton backEditProfile;
     private javax.swing.JPanel bg;
     private javax.swing.JButton browseEditProfile;
@@ -860,7 +769,6 @@ public class Karyawan extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
@@ -875,7 +783,6 @@ public class Karyawan extends javax.swing.JFrame {
     private javax.swing.JPanel passwordProfile;
     private javax.swing.JButton passwordSave;
     private javax.swing.JButton saveEditProfile;
-    private javax.swing.JTable tabelInputBarang;
     private javax.swing.JLabel textEmail;
     private javax.swing.JLabel textJabatan;
     private javax.swing.JLabel textNama;

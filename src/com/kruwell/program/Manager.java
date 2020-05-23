@@ -98,6 +98,24 @@ public class Manager extends javax.swing.JFrame {
         Tittle = new javax.swing.JPanel();
         txt_Tittle = new javax.swing.JLabel();
         layeredPane = new javax.swing.JLayeredPane();
+        Layout_dataKasir = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        kasirTable = new javax.swing.JTable();
+        dataKasirTampilkan = new javax.swing.JButton();
+        dataKasirHapus = new javax.swing.JButton();
+        Layout_riwayatBarang = new javax.swing.JPanel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTable4 = new javax.swing.JTable();
+        riwayatBarangTampil = new javax.swing.JButton();
+        Layout_riwayatTransaksi = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTable3 = new javax.swing.JTable();
+        riwayatTransaksiTampil = new javax.swing.JButton();
+        Layout_dataKaryawan = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        karyawanTable = new javax.swing.JTable();
+        dataKaryawanHapus = new javax.swing.JButton();
+        dataKaryawanTampilkan = new javax.swing.JButton();
         Layout_tambahPekerja = new javax.swing.JPanel();
         lbl_img = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
@@ -115,14 +133,14 @@ public class Manager extends javax.swing.JFrame {
         jabatan1 = new javax.swing.JComboBox();
         btnImage = new javax.swing.JButton();
         add = new javax.swing.JButton();
-        Layout_dataKasir = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        kasirTable = new javax.swing.JTable();
-        dataKasirTampilkan = new javax.swing.JButton();
-        dataKasirHapus = new javax.swing.JButton();
-        Layout_dataKaryawan = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        karyawanTable = new javax.swing.JTable();
+        passwordProfile = new javax.swing.JPanel();
+        passwordSave1 = new javax.swing.JButton();
+        passwordCancel1 = new javax.swing.JButton();
+        kolomPassword1 = new javax.swing.JPanel();
+        jLabel32 = new javax.swing.JLabel();
+        jLabel33 = new javax.swing.JLabel();
+        passwordBaru = new javax.swing.JTextField();
+        passwordLama = new javax.swing.JTextField();
         editProfile = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
@@ -150,20 +168,6 @@ public class Manager extends javax.swing.JFrame {
         textJabatan = new javax.swing.JLabel();
         gantiPassword = new javax.swing.JButton();
         editData = new javax.swing.JButton();
-        Layout_riwayatTransaksi = new javax.swing.JPanel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
-        Layout_riwayatBarang = new javax.swing.JPanel();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        jTable4 = new javax.swing.JTable();
-        passwordProfile = new javax.swing.JPanel();
-        passwordSave = new javax.swing.JButton();
-        passwordCancel = new javax.swing.JButton();
-        kolomPassword = new javax.swing.JPanel();
-        jLabel22 = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -361,6 +365,205 @@ public class Manager extends javax.swing.JFrame {
 
         bg.add(Tittle, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 30, 720, 100));
 
+        Layout_dataKasir.setBackground(new java.awt.Color(255, 255, 255));
+        Layout_dataKasir.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        kasirTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "ID", "Nama Karyawan", "Tanggal Masuk"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.String.class, java.lang.Object.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        kasirTable.setGridColor(new java.awt.Color(240, 240, 240));
+        kasirTable.setRowHeight(50);
+        kasirTable.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(kasirTable);
+        if (kasirTable.getColumnModel().getColumnCount() > 0) {
+            kasirTable.getColumnModel().getColumn(0).setResizable(false);
+            kasirTable.getColumnModel().getColumn(0).setPreferredWidth(25);
+            kasirTable.getColumnModel().getColumn(1).setResizable(false);
+            kasirTable.getColumnModel().getColumn(1).setPreferredWidth(400);
+            kasirTable.getColumnModel().getColumn(2).setResizable(false);
+        }
+
+        Layout_dataKasir.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 700, 340));
+
+        dataKasirTampilkan.setText("Tampilkan");
+        Layout_dataKasir.add(dataKasirTampilkan, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 360, 110, -1));
+
+        dataKasirHapus.setText("Hapus");
+        dataKasirHapus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dataKasirHapusActionPerformed(evt);
+            }
+        });
+        Layout_dataKasir.add(dataKasirHapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 360, 90, -1));
+
+        Layout_riwayatBarang.setBackground(new java.awt.Color(255, 255, 255));
+        Layout_riwayatBarang.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jTable4.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
+            },
+            new String [] {
+                "ID Pemasukan Barang", "DATE"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jTable4.setGridColor(new java.awt.Color(240, 240, 240));
+        jTable4.setRowHeight(50);
+        jTable4.getTableHeader().setReorderingAllowed(false);
+        jScrollPane4.setViewportView(jTable4);
+
+        Layout_riwayatBarang.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 700, 340));
+
+        riwayatBarangTampil.setText("Tampilkan");
+        Layout_riwayatBarang.add(riwayatBarangTampil, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 360, 110, -1));
+
+        Layout_riwayatTransaksi.setBackground(new java.awt.Color(255, 255, 255));
+        Layout_riwayatTransaksi.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
+            },
+            new String [] {
+                "ID Transaksi", "DATE"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jTable3.setGridColor(new java.awt.Color(240, 240, 240));
+        jTable3.setRowHeight(50);
+        jTable3.getTableHeader().setReorderingAllowed(false);
+        jScrollPane3.setViewportView(jTable3);
+
+        Layout_riwayatTransaksi.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 700, 340));
+
+        riwayatTransaksiTampil.setText("Tampilkan");
+        Layout_riwayatTransaksi.add(riwayatTransaksiTampil, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 360, 110, -1));
+
+        Layout_dataKaryawan.setBackground(new java.awt.Color(255, 255, 255));
+        Layout_dataKaryawan.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        karyawanTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
+            },
+            new String [] {
+                "Nama Karyawan", "Tanggal Masuk"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.Object.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        karyawanTable.setGridColor(new java.awt.Color(240, 240, 240));
+        karyawanTable.setRowHeight(50);
+        karyawanTable.getTableHeader().setReorderingAllowed(false);
+        jScrollPane2.setViewportView(karyawanTable);
+        if (karyawanTable.getColumnModel().getColumnCount() > 0) {
+            karyawanTable.getColumnModel().getColumn(0).setResizable(false);
+            karyawanTable.getColumnModel().getColumn(0).setPreferredWidth(25);
+            karyawanTable.getColumnModel().getColumn(1).setResizable(false);
+            karyawanTable.getColumnModel().getColumn(1).setPreferredWidth(400);
+        }
+
+        Layout_dataKaryawan.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 700, 340));
+
+        dataKaryawanHapus.setText("Hapus");
+        dataKaryawanHapus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dataKaryawanHapusActionPerformed(evt);
+            }
+        });
+        Layout_dataKaryawan.add(dataKaryawanHapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 360, 90, -1));
+
+        dataKaryawanTampilkan.setText("Tampilkan");
+        Layout_dataKaryawan.add(dataKaryawanTampilkan, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 360, 110, -1));
+
         Layout_tambahPekerja.setBackground(new java.awt.Color(255, 255, 255));
         Layout_tambahPekerja.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -432,115 +635,44 @@ public class Manager extends javax.swing.JFrame {
         });
         Layout_tambahPekerja.add(add, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 340, 100, 50));
 
-        Layout_dataKasir.setBackground(new java.awt.Color(255, 255, 255));
-        Layout_dataKasir.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        passwordProfile.setBackground(new java.awt.Color(255, 255, 255));
+        passwordProfile.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        kasirTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
-            },
-            new String [] {
-                "ID", "Nama Karyawan", "Tanggal Masuk"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.String.class, java.lang.Object.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, false
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
+        passwordSave1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        passwordSave1.setText("Save");
+        passwordSave1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                passwordSave1MouseClicked(evt);
             }
         });
-        kasirTable.setGridColor(new java.awt.Color(240, 240, 240));
-        kasirTable.setRowHeight(50);
-        kasirTable.getTableHeader().setReorderingAllowed(false);
-        jScrollPane1.setViewportView(kasirTable);
-        if (kasirTable.getColumnModel().getColumnCount() > 0) {
-            kasirTable.getColumnModel().getColumn(0).setResizable(false);
-            kasirTable.getColumnModel().getColumn(0).setPreferredWidth(25);
-            kasirTable.getColumnModel().getColumn(1).setResizable(false);
-            kasirTable.getColumnModel().getColumn(1).setPreferredWidth(400);
-            kasirTable.getColumnModel().getColumn(2).setResizable(false);
-        }
+        passwordProfile.add(passwordSave1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 340, -1, -1));
 
-        Layout_dataKasir.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 700, 340));
-
-        dataKasirTampilkan.setText("Tampilkan");
-        Layout_dataKasir.add(dataKasirTampilkan, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 360, 110, -1));
-
-        dataKasirHapus.setText("Hapus");
-        dataKasirHapus.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                dataKasirHapusActionPerformed(evt);
+        passwordCancel1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        passwordCancel1.setText("Cancel");
+        passwordCancel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                passwordCancel1MouseClicked(evt);
             }
         });
-        Layout_dataKasir.add(dataKasirHapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 360, 90, -1));
+        passwordProfile.add(passwordCancel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 340, -1, -1));
 
-        Layout_dataKaryawan.setBackground(new java.awt.Color(255, 255, 255));
-        Layout_dataKaryawan.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        kolomPassword1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        karyawanTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
-            },
-            new String [] {
-                "Nama Karyawan", "Tanggal Masuk"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Object.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false
-            };
+        jLabel32.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel32.setText("Password Lama  :");
+        kolomPassword1.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, -1, 30));
 
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
+        jLabel33.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel33.setText("Password Baru   :");
+        kolomPassword1.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, -1, 30));
 
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        karyawanTable.setGridColor(new java.awt.Color(240, 240, 240));
-        karyawanTable.setRowHeight(50);
-        karyawanTable.getTableHeader().setReorderingAllowed(false);
-        jScrollPane2.setViewportView(karyawanTable);
-        if (karyawanTable.getColumnModel().getColumnCount() > 0) {
-            karyawanTable.getColumnModel().getColumn(0).setResizable(false);
-            karyawanTable.getColumnModel().getColumn(0).setPreferredWidth(25);
-            karyawanTable.getColumnModel().getColumn(1).setResizable(false);
-            karyawanTable.getColumnModel().getColumn(1).setPreferredWidth(400);
-        }
+        passwordBaru.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        kolomPassword1.add(passwordBaru, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 150, 330, 30));
 
-        Layout_dataKaryawan.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 700, 400));
+        passwordLama.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        kolomPassword1.add(passwordLama, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 100, 330, 30));
+
+        passwordProfile.add(kolomPassword1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 630, 280));
 
         editProfile.setBackground(new java.awt.Color(255, 255, 255));
         editProfile.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -678,129 +810,18 @@ public class Manager extends javax.swing.JFrame {
         });
         lihatProfile.add(editData, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 340, -1, -1));
 
-        Layout_riwayatTransaksi.setBackground(new java.awt.Color(255, 255, 255));
-        Layout_riwayatTransaksi.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
-            },
-            new String [] {
-                "ID Transaksi", "DATE"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jTable3.setGridColor(new java.awt.Color(240, 240, 240));
-        jTable3.setRowHeight(50);
-        jTable3.getTableHeader().setReorderingAllowed(false);
-        jScrollPane3.setViewportView(jTable3);
-
-        Layout_riwayatTransaksi.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 700, 400));
-
-        Layout_riwayatBarang.setBackground(new java.awt.Color(255, 255, 255));
-        Layout_riwayatBarang.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jTable4.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
-            },
-            new String [] {
-                "ID Pemasukan Barang", "DATE"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jTable4.setGridColor(new java.awt.Color(240, 240, 240));
-        jTable4.setRowHeight(50);
-        jTable4.getTableHeader().setReorderingAllowed(false);
-        jScrollPane4.setViewportView(jTable4);
-
-        Layout_riwayatBarang.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 700, 400));
-
-        passwordProfile.setBackground(new java.awt.Color(255, 255, 255));
-        passwordProfile.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        passwordSave.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        passwordSave.setText("Save");
-        passwordSave.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                passwordSaveMouseClicked(evt);
-            }
-        });
-        passwordProfile.add(passwordSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 340, -1, -1));
-
-        passwordCancel.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        passwordCancel.setText("Cancel");
-        passwordCancel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                passwordCancelMouseClicked(evt);
-            }
-        });
-        passwordProfile.add(passwordCancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 340, -1, -1));
-
-        kolomPassword.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel22.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel22.setText("Password Lama  :");
-        kolomPassword.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, -1, 30));
-
-        jLabel23.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel23.setText("Password Baru   :");
-        kolomPassword.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, -1, 30));
-
-        jTextField1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        kolomPassword.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 150, 330, 30));
-
-        jTextField2.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        kolomPassword.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 100, 330, 30));
-
-        passwordProfile.add(kolomPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 630, 280));
-
         javax.swing.GroupLayout layeredPaneLayout = new javax.swing.GroupLayout(layeredPane);
         layeredPane.setLayout(layeredPaneLayout);
         layeredPaneLayout.setHorizontalGroup(
             layeredPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Layout_dataKasir, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Layout_dataKasir, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 770, Short.MAX_VALUE)
             .addGroup(layeredPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layeredPaneLayout.createSequentialGroup()
                     .addComponent(Layout_riwayatTransaksi, javax.swing.GroupLayout.PREFERRED_SIZE, 720, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 20, Short.MAX_VALUE)))
+                    .addGap(0, 50, Short.MAX_VALUE)))
             .addGroup(layeredPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layeredPaneLayout.createSequentialGroup()
-                    .addComponent(Layout_riwayatBarang, javax.swing.GroupLayout.DEFAULT_SIZE, 725, Short.MAX_VALUE)
+                    .addComponent(Layout_riwayatBarang, javax.swing.GroupLayout.DEFAULT_SIZE, 755, Short.MAX_VALUE)
                     .addContainerGap()))
             .addGroup(layeredPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layeredPaneLayout.createSequentialGroup()
@@ -816,12 +837,12 @@ public class Manager extends javax.swing.JFrame {
                     .addGap(0, 0, Short.MAX_VALUE)))
             .addGroup(layeredPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layeredPaneLayout.createSequentialGroup()
-                    .addComponent(passwordProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 740, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(Layout_tambahPekerja, javax.swing.GroupLayout.PREFERRED_SIZE, 740, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
             .addGroup(layeredPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layeredPaneLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(Layout_tambahPekerja, javax.swing.GroupLayout.PREFERRED_SIZE, 740, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(passwordProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 770, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
         layeredPaneLayout.setVerticalGroup(
@@ -851,22 +872,22 @@ public class Manager extends javax.swing.JFrame {
                     .addGap(0, 97, Short.MAX_VALUE)))
             .addGroup(layeredPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layeredPaneLayout.createSequentialGroup()
-                    .addComponent(passwordProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 455, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-            .addGroup(layeredPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layeredPaneLayout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
                     .addComponent(Layout_tambahPekerja, javax.swing.GroupLayout.PREFERRED_SIZE, 537, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(layeredPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layeredPaneLayout.createSequentialGroup()
+                    .addComponent(passwordProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 504, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 33, Short.MAX_VALUE)))
         );
-        layeredPane.setLayer(Layout_tambahPekerja, javax.swing.JLayeredPane.DEFAULT_LAYER);
         layeredPane.setLayer(Layout_dataKasir, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        layeredPane.setLayer(Layout_riwayatBarang, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        layeredPane.setLayer(Layout_riwayatTransaksi, javax.swing.JLayeredPane.DEFAULT_LAYER);
         layeredPane.setLayer(Layout_dataKaryawan, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        layeredPane.setLayer(Layout_tambahPekerja, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        layeredPane.setLayer(passwordProfile, javax.swing.JLayeredPane.DEFAULT_LAYER);
         layeredPane.setLayer(editProfile, javax.swing.JLayeredPane.DEFAULT_LAYER);
         layeredPane.setLayer(lihatProfile, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        layeredPane.setLayer(Layout_riwayatTransaksi, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        layeredPane.setLayer(Layout_riwayatBarang, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        layeredPane.setLayer(passwordProfile, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         bg.add(layeredPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 130, 730, 420));
 
@@ -1058,19 +1079,6 @@ public class Manager extends javax.swing.JFrame {
         textJabatan.setText(admin.jabatan);
     }//GEN-LAST:event_btn_profileMousePressed
 
-    private void passwordCancelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passwordCancelMouseClicked
-        switchPanels(lihatProfile);
-        user admin = new user(id_user);
-        textNama.setText(admin.nama);
-        textNoTelp.setText(admin.no_telp);
-        textEmail.setText(admin.email);
-        textJabatan.setText(admin.jabatan);
-    }//GEN-LAST:event_passwordCancelMouseClicked
-
-    private void passwordSaveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passwordSaveMouseClicked
-        
-    }//GEN-LAST:event_passwordSaveMouseClicked
-
     private void backEditProfileMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backEditProfileMouseClicked
         switchPanels(lihatProfile);
         user admin = new user(id_user);
@@ -1130,7 +1138,7 @@ public class Manager extends javax.swing.JFrame {
         String[] options = {"Ya","Tidak"};
         int x=JOptionPane.showOptionDialog(null,"Yakin ingin menghapus data ?","Confirm",JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[1]);
         
-        System.out.print(kasirTable.getValueAt(baris, 0));
+//        System.out.print(kasirTable.getValueAt(baris, 0));
         if(x==0){
             try{
                 sql="DELETE FROM user WHERE id_user='"+kasirTable.getValueAt(baris, 0)+"'";
@@ -1142,6 +1150,51 @@ public class Manager extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_dataKasirHapusActionPerformed
+
+    private void passwordSave1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passwordSave1MouseClicked
+        try{
+            sql="SELECT password FROM user WHERE id_user='"+id_user+"'";
+            rs=stat.executeQuery(sql);
+            rs.next();
+            if(passwordLama.getText().equals(rs.getString(1))){
+                sql="UPDATE user SET password='"+passwordBaru.getText()+"'WHERE id_user='"+id_user+"'";
+                stat.execute(sql);
+                JOptionPane.showMessageDialog(null, "Password berhasil diupdate");
+            }else{
+                JOptionPane.showMessageDialog(null, "Password salah");
+            }
+
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
+    }//GEN-LAST:event_passwordSave1MouseClicked
+
+    private void passwordCancel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passwordCancel1MouseClicked
+        switchPanels(lihatProfile);
+        user kasir = new user(id_user);
+        textNama.setText(kasir.nama);
+        textNoTelp.setText(kasir.no_telp);
+        textEmail.setText(kasir.email);
+        textJabatan.setText(kasir.jabatan);
+    }//GEN-LAST:event_passwordCancel1MouseClicked
+
+    private void dataKaryawanHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dataKaryawanHapusActionPerformed
+        int baris = karyawanTable.getSelectedRow();
+        String[] options = {"Ya","Tidak"};
+        int x=JOptionPane.showOptionDialog(null,"Yakin ingin menghapus data ?","Confirm",JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[1]);
+        
+//        System.out.print(kasirTable.getValueAt(baris, 0));
+        if(x==0){
+            try{
+                sql="DELETE FROM user WHERE id_user='"+karyawanTable.getValueAt(baris, 0)+"'";
+                stat.execute(sql);
+                JOptionPane.showMessageDialog(null, "Data berhasil dihapus");
+                setTableData("Karyawan",karyawanTable);
+            }catch(Exception e){
+                JOptionPane.showMessageDialog(this,e.getMessage());
+            }
+        }
+    }//GEN-LAST:event_dataKaryawanHapusActionPerformed
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -1230,6 +1283,8 @@ public class Manager extends javax.swing.JFrame {
     private javax.swing.JPanel btn_riwayatBarang;
     private javax.swing.JPanel btn_riwayatTransaksi;
     private javax.swing.JPanel btn_tambahPekerja;
+    private javax.swing.JButton dataKaryawanHapus;
+    private javax.swing.JButton dataKaryawanTampilkan;
     private javax.swing.JButton dataKasirHapus;
     private javax.swing.JButton dataKasirTampilkan;
     private javax.swing.JButton editData;
@@ -1251,8 +1306,6 @@ public class Manager extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
@@ -1262,6 +1315,8 @@ public class Manager extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -1278,13 +1333,11 @@ public class Manager extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTable jTable3;
     private javax.swing.JTable jTable4;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JLabel jabatan;
     private javax.swing.JComboBox jabatan1;
     private javax.swing.JTable karyawanTable;
     private javax.swing.JTable kasirTable;
-    private javax.swing.JPanel kolomPassword;
+    private javax.swing.JPanel kolomPassword1;
     private javax.swing.JLayeredPane layeredPane;
     private javax.swing.JLabel lbl_img;
     private javax.swing.JPanel lihatProfile;
@@ -1293,9 +1346,13 @@ public class Manager extends javax.swing.JFrame {
     private javax.swing.JTextField no_telp;
     private javax.swing.JTextField no_telp1;
     private javax.swing.JTextField password1;
-    private javax.swing.JButton passwordCancel;
+    private javax.swing.JTextField passwordBaru;
+    private javax.swing.JButton passwordCancel1;
+    private javax.swing.JTextField passwordLama;
     private javax.swing.JPanel passwordProfile;
-    private javax.swing.JButton passwordSave;
+    private javax.swing.JButton passwordSave1;
+    private javax.swing.JButton riwayatBarangTampil;
+    private javax.swing.JButton riwayatTransaksiTampil;
     private javax.swing.JButton saveEditProfile;
     private javax.swing.JLabel textEmail;
     private javax.swing.JLabel textJabatan;

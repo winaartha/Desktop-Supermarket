@@ -16,12 +16,12 @@ public class Karyawan extends javax.swing.JFrame {
     ResultSet rs;
     String sql;
         
-    public static int id_user;
+    public static int idAkun;
     String layoutActive, buttonActive;
     public int baris, kolom;
     
     public Karyawan(int id){
-        id_user=id;
+        idAkun=id;
         koneksi DB = new koneksi();
         DB.config();
         con = DB.con;
@@ -934,7 +934,7 @@ public class Karyawan extends javax.swing.JFrame {
         layoutActive="btn_profile";
         txt_Tittle.setText("Profile");
         
-        user karyawan = new user(id_user);
+        user karyawan = new user(idAkun);
         textNama.setText(karyawan.nama);
         textNoTelp.setText(karyawan.no_telp);
         textEmail.setText(karyawan.email);
@@ -980,7 +980,7 @@ public class Karyawan extends javax.swing.JFrame {
 
     private void backEditProfileMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backEditProfileMouseClicked
         switchPanels(lihatProfile);
-        user karyawan = new user(id_user);
+        user karyawan = new user(idAkun);
         textNama.setText(karyawan.nama);
         textNoTelp.setText(karyawan.no_telp);
         textEmail.setText(karyawan.email);
@@ -989,7 +989,7 @@ public class Karyawan extends javax.swing.JFrame {
 
     private void saveEditProfileMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_saveEditProfileMouseClicked
         try{
-            sql="UPDATE user SET nama='"+nama1.getText()+"',no_telp='"+no_telp1.getText()+"',email='"+email1.getText()+"',foto=NULL WHERE id_user='"+id_user+"'";
+            sql="UPDATE akun SET nama='"+nama1.getText()+"',noTelp='"+no_telp1.getText()+"',email='"+email1.getText()+"',foto=NULL WHERE idAkun='"+idAkun+"'";
             stat.executeUpdate(sql);
 
             JOptionPane.showMessageDialog(null, "Berhasil mengupdate data");
@@ -1004,7 +1004,7 @@ public class Karyawan extends javax.swing.JFrame {
 
     private void editDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editDataMouseClicked
         switchPanels(editProfile);
-        user karyawan = new user(id_user);
+        user karyawan = new user(idAkun);
         nama1.setText(karyawan.nama);
         no_telp1.setText(karyawan.no_telp);
         email1.setText(karyawan.email);
@@ -1013,11 +1013,11 @@ public class Karyawan extends javax.swing.JFrame {
 
     private void passwordSaveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passwordSaveMouseClicked
         try{
-            sql="SELECT password FROM user WHERE id_user='"+id_user+"'";
+            sql="SELECT password FROM akun WHERE idAkun='"+idAkun+"'";
             rs=stat.executeQuery(sql);
             rs.next();
             if(passwordLama.getText().equals(rs.getString(1))){
-                sql="UPDATE user SET password='"+passwordBaru.getText()+"'WHERE id_user='"+id_user+"'";
+                sql="UPDATE akun SET password='"+passwordBaru.getText()+"'WHERE idAkun='"+idAkun+"'";
                 stat.execute(sql);
                 JOptionPane.showMessageDialog(null, "Password berhasil diupdate");
             }else{
@@ -1031,7 +1031,7 @@ public class Karyawan extends javax.swing.JFrame {
 
     private void passwordCancelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passwordCancelMouseClicked
         switchPanels(lihatProfile);
-        user kasir = new user(id_user);
+        user kasir = new user(idAkun);
         textNama.setText(kasir.nama);
         textNoTelp.setText(kasir.no_telp);
         textEmail.setText(kasir.email);
@@ -1134,7 +1134,7 @@ public class Karyawan extends javax.swing.JFrame {
         String nama,no_telp,email,jabatan;
         public user(int id){
             try{
-                sql="Select nama,no_telp,email,jabatan From user Where id_user='"+id+"'";
+                sql="Select nama,noTelp,email,jabatan From akun Where idAkun='"+id+"'";
                 rs=stat.executeQuery(sql);
                 rs.next();
                 nama=rs.getString(1);
@@ -1152,7 +1152,7 @@ public class Karyawan extends javax.swing.JFrame {
             int rows=0;
             int rowIndex=0;
             
-            sql="SELECT id_barang,nama_barang,kategori,stok FROM barang";
+            sql="SELECT idBarang,namaBarang,kategori.namaKategori,stok FROM barang LEFT JOIN kategori USING (idKategori)";
             rs=stat.executeQuery(sql);
             if(rs.next()){
                 rs.last();

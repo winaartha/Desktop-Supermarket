@@ -29,12 +29,12 @@ public class Manager extends javax.swing.JFrame {
     private byte[] picture;
             
     //Bantuan        
-    public static int id_user;
+    public static int idAkun;
     String layoutActive;
     public int baris, kolom;
     
     public Manager(int id){
-        id_user=id;
+        idAkun=id;
         koneksi DB = new koneksi();
         DB.config();
         con = DB.con;
@@ -1039,7 +1039,7 @@ public class Manager extends javax.swing.JFrame {
 
     private void editDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editDataMouseClicked
         switchPanels(editProfile);
-        user admin = new user(id_user);
+        user admin = new user(idAkun);
         nama.setText(admin.nama);
         no_telp.setText(admin.no_telp);
         email.setText(admin.email);
@@ -1072,7 +1072,7 @@ public class Manager extends javax.swing.JFrame {
 
         txt_Tittle.setText("Profile");
 
-        user admin = new user(id_user);
+        user admin = new user(idAkun);
         textNama.setText(admin.nama);
         textNoTelp.setText(admin.no_telp);
         textEmail.setText(admin.email);
@@ -1081,7 +1081,7 @@ public class Manager extends javax.swing.JFrame {
 
     private void backEditProfileMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backEditProfileMouseClicked
         switchPanels(lihatProfile);
-        user admin = new user(id_user);
+        user admin = new user(idAkun);
         textNama.setText(admin.nama);
         textNoTelp.setText(admin.no_telp);
         textEmail.setText(admin.email);
@@ -1091,7 +1091,7 @@ public class Manager extends javax.swing.JFrame {
     private void addMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMouseClicked
        
         try{
-            sql="INSERT INTO user (nama,no_telp,email,jabatan,foto,tgl_masuk,username,password) Values('"+nama1.getText()+"','"+no_telp1.getText()+"','"+email1.getText()+"','"+jabatan1.getSelectedItem()+"',NULL,CURDATE(),'"+username1.getText()+"','"+password1.getText()+"')";
+            sql="INSERT INTO akun (nama,noTelp,email,jabatan,foto,tglMasuk,username,password) Values('"+nama1.getText()+"','"+no_telp1.getText()+"','"+email1.getText()+"','"+jabatan1.getSelectedItem()+"',NULL,CURDATE(),'"+username1.getText()+"','"+password1.getText()+"')";
             stat.executeUpdate(sql);
             
             JOptionPane.showMessageDialog(null, "Berhasil menambah data");
@@ -1124,7 +1124,7 @@ public class Manager extends javax.swing.JFrame {
 
     private void saveEditProfileMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_saveEditProfileMouseClicked
         try{
-            sql="UPDATE user SET nama='"+nama.getText()+"',no_telp='"+no_telp.getText()+"',email='"+email.getText()+"',foto=NULL WHERE id_user='"+id_user+"'";
+            sql="UPDATE akun SET nama='"+nama.getText()+"',noTelp='"+no_telp.getText()+"',email='"+email.getText()+"',foto=NULL WHERE idAkun='"+idAkun+"'";
             stat.executeUpdate(sql);
             
             JOptionPane.showMessageDialog(null, "Berhasil mengupdate data");
@@ -1141,7 +1141,7 @@ public class Manager extends javax.swing.JFrame {
 //        System.out.print(kasirTable.getValueAt(baris, 0));
         if(x==0){
             try{
-                sql="DELETE FROM user WHERE id_user='"+kasirTable.getValueAt(baris, 0)+"'";
+                sql="DELETE FROM akun WHERE idAkun='"+kasirTable.getValueAt(baris, 0)+"'";
                 stat.execute(sql);
                 JOptionPane.showMessageDialog(null, "Data berhasil dihapus");
                 setTableData("Kasir",kasirTable);
@@ -1153,11 +1153,11 @@ public class Manager extends javax.swing.JFrame {
 
     private void passwordSave1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passwordSave1MouseClicked
         try{
-            sql="SELECT password FROM user WHERE id_user='"+id_user+"'";
+            sql="SELECT password FROM akun WHERE idAkun='"+idAkun+"'";
             rs=stat.executeQuery(sql);
             rs.next();
             if(passwordLama.getText().equals(rs.getString(1))){
-                sql="UPDATE user SET password='"+passwordBaru.getText()+"'WHERE id_user='"+id_user+"'";
+                sql="UPDATE akun SET password='"+passwordBaru.getText()+"'WHERE idAkun='"+idAkun+"'";
                 stat.execute(sql);
                 JOptionPane.showMessageDialog(null, "Password berhasil diupdate");
             }else{
@@ -1171,7 +1171,7 @@ public class Manager extends javax.swing.JFrame {
 
     private void passwordCancel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passwordCancel1MouseClicked
         switchPanels(lihatProfile);
-        user kasir = new user(id_user);
+        user kasir = new user(idAkun);
         textNama.setText(kasir.nama);
         textNoTelp.setText(kasir.no_telp);
         textEmail.setText(kasir.email);
@@ -1186,7 +1186,7 @@ public class Manager extends javax.swing.JFrame {
 //        System.out.print(kasirTable.getValueAt(baris, 0));
         if(x==0){
             try{
-                sql="DELETE FROM user WHERE id_user='"+karyawanTable.getValueAt(baris, 0)+"'";
+                sql="DELETE FROM akun WHERE idAkun='"+karyawanTable.getValueAt(baris, 0)+"'";
                 stat.execute(sql);
                 JOptionPane.showMessageDialog(null, "Data berhasil dihapus");
                 setTableData("Karyawan",karyawanTable);
@@ -1208,7 +1208,7 @@ public class Manager extends javax.swing.JFrame {
         String nama,no_telp,email,jabatan;
         public user(int id){
             try{
-                sql="Select nama,no_telp,email,jabatan From user Where id_user='"+id+"'";
+                sql="Select nama,noTelp,email,jabatan From akun Where idAkun='"+id+"'";
                 rs=stat.executeQuery(sql);
                 rs.next();
                 nama=rs.getString(1);
@@ -1235,7 +1235,7 @@ public class Manager extends javax.swing.JFrame {
             int rows=0;
             int rowIndex=0;
             
-            sql="SELECT id_user,nama,tgl_masuk FROM user WHERE jabatan='"+jabatan+"'";
+            sql="SELECT idAkun,nama,tglMasuk FROM akun WHERE jabatan='"+jabatan+"'";
             rs=stat.executeQuery(sql);
             if(rs.next()){
                 rs.last();

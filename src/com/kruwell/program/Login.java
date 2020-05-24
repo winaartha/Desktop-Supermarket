@@ -179,13 +179,13 @@ public class Login extends javax.swing.JFrame {
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         try{
-            sql = "SELECT * FROM user WHERE username='"+txtUsername.getText()+"' AND password='"+txtPassword.getText()+"'";
+            sql = "SELECT * FROM akun WHERE username='"+txtUsername.getText()+"' AND password='"+txtPassword.getText()+"'";
             rs = stat.executeQuery(sql);
 
             if(rs.next()){
                 if((txtUsername.getText().equals(rs.getString("username"))) && txtPassword.getText().equals(rs.getString("password"))){
                     jabatan = rs.getString("jabatan");
-                    id_user = rs.getInt("id_user");
+                    id_user = rs.getInt("idAkun");
                     this.setVisible(false);
                     switch(jabatan){
                         case "Manager":

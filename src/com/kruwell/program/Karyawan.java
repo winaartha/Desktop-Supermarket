@@ -83,6 +83,9 @@ public class Karyawan extends javax.swing.JFrame {
         Tittle = new javax.swing.JPanel();
         txt_Tittle = new javax.swing.JLabel();
         layeredPane = new javax.swing.JLayeredPane();
+        Layout_riwayat = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tabel_riwayatPembelian = new javax.swing.JTable();
         Layout_Tabel = new javax.swing.JPanel();
         btn_tambahInputBarang = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -94,9 +97,6 @@ public class Karyawan extends javax.swing.JFrame {
         tabelListBarang = new javax.swing.JTable();
         btn_hapusList = new javax.swing.JButton();
         btn_tampilkanList = new javax.swing.JButton();
-        Layout_riwayat = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tabel_riwayatPembelian = new javax.swing.JTable();
         Layout_Tambah = new javax.swing.JPanel();
         jLabel32 = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
@@ -302,6 +302,49 @@ public class Karyawan extends javax.swing.JFrame {
 
         bg.add(Tittle, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 30, 720, 100));
 
+        Layout_riwayat.setBackground(new java.awt.Color(255, 255, 255));
+        Layout_riwayat.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        tabel_riwayatPembelian.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "ID Restok", "DATE", "Total Pembelian"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tabel_riwayatPembelian.setGridColor(new java.awt.Color(240, 240, 240));
+        tabel_riwayatPembelian.setRowHeight(50);
+        tabel_riwayatPembelian.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(tabel_riwayatPembelian);
+        if (tabel_riwayatPembelian.getColumnModel().getColumnCount() > 0) {
+            tabel_riwayatPembelian.getColumnModel().getColumn(0).setResizable(false);
+            tabel_riwayatPembelian.getColumnModel().getColumn(0).setPreferredWidth(20);
+            tabel_riwayatPembelian.getColumnModel().getColumn(1).setResizable(false);
+            tabel_riwayatPembelian.getColumnModel().getColumn(1).setPreferredWidth(140);
+            tabel_riwayatPembelian.getColumnModel().getColumn(2).setResizable(false);
+        }
+
+        Layout_riwayat.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 670, 380));
+
         Layout_Tabel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btn_tambahInputBarang.setText("Proses");
@@ -422,49 +465,6 @@ public class Karyawan extends javax.swing.JFrame {
 
         btn_tampilkanList.setText("Tampilkan");
         Layout_ListBarang.add(btn_tampilkanList, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 360, 110, -1));
-
-        Layout_riwayat.setBackground(new java.awt.Color(255, 255, 255));
-        Layout_riwayat.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        tabel_riwayatPembelian.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
-            },
-            new String [] {
-                "ID Restok", "DATE", "Total Pembelian"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        tabel_riwayatPembelian.setGridColor(new java.awt.Color(240, 240, 240));
-        tabel_riwayatPembelian.setRowHeight(50);
-        tabel_riwayatPembelian.getTableHeader().setReorderingAllowed(false);
-        jScrollPane1.setViewportView(tabel_riwayatPembelian);
-        if (tabel_riwayatPembelian.getColumnModel().getColumnCount() > 0) {
-            tabel_riwayatPembelian.getColumnModel().getColumn(0).setResizable(false);
-            tabel_riwayatPembelian.getColumnModel().getColumn(0).setPreferredWidth(20);
-            tabel_riwayatPembelian.getColumnModel().getColumn(1).setResizable(false);
-            tabel_riwayatPembelian.getColumnModel().getColumn(1).setPreferredWidth(140);
-            tabel_riwayatPembelian.getColumnModel().getColumn(2).setResizable(false);
-        }
-
-        Layout_riwayat.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 670, 380));
 
         Layout_Tambah.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -824,9 +824,9 @@ public class Karyawan extends javax.swing.JFrame {
                     .addComponent(Layout_ListBarang, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 37, Short.MAX_VALUE)))
         );
+        layeredPane.setLayer(Layout_riwayat, javax.swing.JLayeredPane.DEFAULT_LAYER);
         layeredPane.setLayer(Layout_Tabel, javax.swing.JLayeredPane.DEFAULT_LAYER);
         layeredPane.setLayer(Layout_ListBarang, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        layeredPane.setLayer(Layout_riwayat, javax.swing.JLayeredPane.DEFAULT_LAYER);
         layeredPane.setLayer(Layout_Tambah, javax.swing.JLayeredPane.DEFAULT_LAYER);
         layeredPane.setLayer(Layout_button, javax.swing.JLayeredPane.DEFAULT_LAYER);
         layeredPane.setLayer(passwordProfile, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -889,6 +889,7 @@ public class Karyawan extends javax.swing.JFrame {
         switchPanels(Layout_riwayat);
         layoutActive="btn_riwayat";
         txt_Tittle.setText("Riwayat");
+        tabel_riwayatPembelian.setAutoCreateRowSorter(true);
         
         setTableRiwayat(tabel_riwayatPembelian);
         

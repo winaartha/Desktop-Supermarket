@@ -911,12 +911,10 @@ public class Kasir extends javax.swing.JFrame {
             DefaultTableModel model = new DefaultTableModel(data,cols);
             dataTable.setModel(model);
             
-            
         }catch(Exception e){
             System.out.print(e);
         }
     }
-    
     
     public void addListener(){
         tabelTransaksi.getModel().addTableModelListener(new TableModelListener() {
@@ -952,8 +950,6 @@ public class Kasir extends javax.swing.JFrame {
                                 }catch(Exception x){
                                     System.out.print(x);
                                 }
-                            
-                            
                             if(Total_harga2.getText()!=null && Total_harga2.getText()!="" && Uang2.getText()!=null && !Uang2.getText().equals("")){
                                 int totalBelanja=Integer.parseInt(Total_harga2.getText());
                                 int totalDibayar=Integer.parseInt(Uang2.getText());
@@ -961,7 +957,6 @@ public class Kasir extends javax.swing.JFrame {
                             }
                             break;
                     }
-                    
                 }
             }
         });    

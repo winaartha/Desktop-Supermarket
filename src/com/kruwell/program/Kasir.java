@@ -6,8 +6,10 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JTable;
 import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
+import javax.swing.table.DefaultTableModel;
 
 public class Kasir extends javax.swing.JFrame {
 
@@ -112,7 +114,7 @@ public class Kasir extends javax.swing.JFrame {
         tabelTransaksi = new javax.swing.JTable();
         Layout_riwayat = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tabel_riwayatTransaksi = new javax.swing.JTable();
         editProfile = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
@@ -301,6 +303,11 @@ public class Kasir extends javax.swing.JFrame {
         Layout_transaksi.add(Kembali2, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 300, 120, 30));
 
         Proses.setText("Proses");
+        Proses.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ProsesActionPerformed(evt);
+            }
+        });
         Layout_transaksi.add(Proses, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 340, -1, -1));
 
         tabelTransaksi.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -321,7 +328,7 @@ public class Kasir extends javax.swing.JFrame {
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Object.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class
             };
             boolean[] canEdit = new boolean [] {
                 true, false, false, false, true, false, false
@@ -359,39 +366,48 @@ public class Kasir extends javax.swing.JFrame {
         Layout_riwayat.setBackground(new java.awt.Color(255, 255, 255));
         Layout_riwayat.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tabel_riwayatTransaksi.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "ID Transaksi", "DATE"
+                "ID Transaksi", "ID Pelanggan", "DATE", "Total Belanja"
             }
         ) {
-            boolean[] canEdit = new boolean [] {
-                false, false
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.Integer.class, java.lang.Object.class, java.lang.Integer.class
             };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        jTable1.setGridColor(new java.awt.Color(240, 240, 240));
-        jTable1.setRowHeight(50);
-        jTable1.getTableHeader().setReorderingAllowed(false);
-        jScrollPane1.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(0).setResizable(false);
-            jTable1.getColumnModel().getColumn(1).setResizable(false);
+        tabel_riwayatTransaksi.setGridColor(new java.awt.Color(240, 240, 240));
+        tabel_riwayatTransaksi.setRowHeight(50);
+        tabel_riwayatTransaksi.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(tabel_riwayatTransaksi);
+        if (tabel_riwayatTransaksi.getColumnModel().getColumnCount() > 0) {
+            tabel_riwayatTransaksi.getColumnModel().getColumn(0).setResizable(false);
+            tabel_riwayatTransaksi.getColumnModel().getColumn(1).setResizable(false);
+            tabel_riwayatTransaksi.getColumnModel().getColumn(2).setResizable(false);
+            tabel_riwayatTransaksi.getColumnModel().getColumn(3).setResizable(false);
         }
 
         Layout_riwayat.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 670, 390));
@@ -665,6 +681,8 @@ public class Kasir extends javax.swing.JFrame {
         tittleRiwayat y  = new tittleRiwayat();
         x=y;
         x.ubah();
+        
+        setTableData(tabel_riwayatTransaksi);
     }//GEN-LAST:event_btn_riwayatMousePressed
 
     private void btn_profileMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_profileMousePressed
@@ -795,6 +813,49 @@ public class Kasir extends javax.swing.JFrame {
             Kembali2.setText(String.valueOf(totalDibayar-totalBelanja));
         }
     }//GEN-LAST:event_Uang2KeyReleased
+
+    private void ProsesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProsesActionPerformed
+        int idTransaksi;
+        String s=JOptionPane.showInputDialog(null,"Masukkan id Pelanggan");
+        try{
+            if(s!=null){
+                if(s.equalsIgnoreCase("")){
+                    sql="INSERT INTO transaksi values (NULL,'"+idAkun+"',0,CURDATE(),'"+Total_harga2.getText()+"')";
+                    stat.executeUpdate(sql);
+                }else{
+                    sql="INSERT INTO transaksi values (NULL,'"+idAkun+"','"+s+"',CURDATE(),'"+Total_harga2.getText()+"')";
+                    stat.executeUpdate(sql);
+                }
+            }
+        }catch(Exception x){
+            System.out.println(x);
+        }
+      
+        try{
+            sql="SELECT idTransaksi FROM transaksi ORDER BY tanggal DESC LIMIT 1";
+            rs=stat.executeQuery(sql);
+            rs.next();
+            idTransaksi=Integer.parseInt(rs.getString(1));
+            
+            for(int i=0;tabelTransaksi.getValueAt(i, 0)!=null;i++){
+                sql="INSERT INTO transaksi_detail values (NULL,'"+idTransaksi+"','"+tabelTransaksi.getValueAt(i, 0)+"','" + tabelTransaksi.getValueAt(i, 2) + "','"+tabelTransaksi.getValueAt(i, 4)+"','"+tabelTransaksi.getValueAt(i, 3)+"')";
+                stat.executeUpdate(sql);
+                
+                sql="UPDATE barang SET stok=stok-'"+tabelTransaksi.getValueAt(i, 4)+"'WHERE idBarang='"+tabelTransaksi.getValueAt(i,0)+"'";
+                stat.execute(sql);
+                
+            }
+            JOptionPane.showMessageDialog(null, "Transaksi Berhasil");
+            DefaultTableModel dtm = (DefaultTableModel) tabelTransaksi.getModel();
+            dtm.setRowCount(0);
+            dtm.setRowCount(8);
+            Total_harga2.setText("");
+            Uang2.setText("");
+            Kembali2.setText("");
+        }catch(Exception e){
+            System.out.println(e);
+        }
+    }//GEN-LAST:event_ProsesActionPerformed
     
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -809,7 +870,7 @@ public class Kasir extends javax.swing.JFrame {
         String nama,no_telp,email,jabatan;
         public user(int id){
             try{
-                sql="Select nama,no_telp,email,jabatan From akun Where idAkun='"+id+"'";
+                sql="Select nama,noTelp,email,jabatan From akun Where idAkun='"+id+"'";
                 rs=stat.executeQuery(sql);
                 rs.next();
                 nama=rs.getString(1);
@@ -821,6 +882,41 @@ public class Kasir extends javax.swing.JFrame {
             }
         }
     }
+    
+    private void setTableData(JTable dataTable){
+        try{
+            int rows=0;
+            int rowIndex=0;
+            
+            sql="SELECT idTransaksi,idPelanggan,tanggal,totalBelanja FROM transaksi WHERE idKasir='"+idAkun+"'";
+            rs=stat.executeQuery(sql);
+            if(rs.next()){
+                rs.last();
+                rows=rs.getRow();
+                rs.beforeFirst();
+            }
+//            System.out.println(rows);
+            String[][] data=new String[rows][4];
+            while(rs.next()){
+                data[rowIndex][0]=rs.getInt(1)+"";
+                data[rowIndex][1]=rs.getInt(2)+"";
+                data[rowIndex][2]=rs.getString(3);
+                data[rowIndex][3]=rs.getInt(4)+"";
+                rowIndex++;
+            }
+            String[] cols={"ID Transaksi","ID Pelanggan","DATE","Total Belanja"};
+            dataTable.getColumnModel().getColumn(0).setPreferredWidth(20);
+            dataTable.getColumnModel().getColumn(2).setPreferredWidth(50);
+            dataTable.getColumnModel().getColumn(3).setPreferredWidth(20);
+            DefaultTableModel model = new DefaultTableModel(data,cols);
+            dataTable.setModel(model);
+            
+            
+        }catch(Exception e){
+            System.out.print(e);
+        }
+    }
+    
     
     public void addListener(){
         tabelTransaksi.getModel().addTableModelListener(new TableModelListener() {
@@ -843,19 +939,25 @@ public class Kasir extends javax.swing.JFrame {
                             }catch(Exception x){
                                 System.out.print(x);
                             }
-                            break;
                         case 4:
-                            try{
-                                int totalHarga=Integer.parseInt(tabelTransaksi.getValueAt(row, 2).toString()) * Integer.parseInt(tabelTransaksi.getValueAt(row, 4).toString());
-                                tabelTransaksi.setValueAt(totalHarga, row, 6);
-                                int totalBelanja=0;
-                                for(int i=0;tabelTransaksi.getValueAt(i, 6)!=null;i++){
-                                    totalBelanja+=Integer.parseInt(tabelTransaksi.getValueAt(i,6).toString());
+                            if(tabelTransaksi.getValueAt(row, 0)!=null && tabelTransaksi.getValueAt(row, 4)!=null)
+                                try{
+                                    int totalHarga=(Integer.parseInt(tabelTransaksi.getValueAt(row, 2).toString())-Integer.parseInt(tabelTransaksi.getValueAt(row, 3).toString())) * Integer.parseInt(tabelTransaksi.getValueAt(row, 4).toString());
+                                    tabelTransaksi.setValueAt(totalHarga, row, 6);
+                                    int totalBelanja=0;
+                                    for(int i=0;tabelTransaksi.getValueAt(i, 6)!=null;i++){
+                                        totalBelanja+=Integer.parseInt(tabelTransaksi.getValueAt(i,6).toString());
+                                    }
+                                    Total_harga2.setText(String.valueOf(totalBelanja));
+                                }catch(Exception x){
+                                    System.out.print(x);
                                 }
-//                                System.out.print(tabelTransaksi.getValueAt(2, 2));
-                                Total_harga2.setText(String.valueOf(totalBelanja));
-                            }catch(Exception x){
-                                System.out.print(x);
+                            
+                            
+                            if(Total_harga2.getText()!=null && Total_harga2.getText()!="" && Uang2.getText()!=null && !Uang2.getText().equals("")){
+                                int totalBelanja=Integer.parseInt(Total_harga2.getText());
+                                int totalDibayar=Integer.parseInt(Uang2.getText());
+                                Kembali2.setText(String.valueOf(totalDibayar-totalBelanja));
                             }
                             break;
                     }
@@ -915,7 +1017,6 @@ public class Kasir extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JLabel jabatan1;
     private javax.swing.JPanel kolomPassword;
     private javax.swing.JLayeredPane layeredPane;
@@ -929,6 +1030,7 @@ public class Kasir extends javax.swing.JFrame {
     private javax.swing.JButton passwordSave;
     private javax.swing.JButton saveEditProfile;
     private javax.swing.JTable tabelTransaksi;
+    private javax.swing.JTable tabel_riwayatTransaksi;
     private javax.swing.JLabel textEmail;
     private javax.swing.JLabel textJabatan;
     private javax.swing.JLabel textNama;

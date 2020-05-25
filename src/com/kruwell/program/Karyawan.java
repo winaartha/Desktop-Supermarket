@@ -7,6 +7,8 @@ import java.sql.Statement;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTable;
+import javax.swing.event.TableModelEvent;
+import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableModel;
 
 public class Karyawan extends javax.swing.JFrame {
@@ -34,6 +36,7 @@ public class Karyawan extends javax.swing.JFrame {
         layoutActive="btn_inputBarang";
         buttonActive="btn_tabel";
         txt_Tittle.setText("Input Barang");
+        addListener();
     }
     
     public Karyawan() {
@@ -80,44 +83,40 @@ public class Karyawan extends javax.swing.JFrame {
         Tittle = new javax.swing.JPanel();
         txt_Tittle = new javax.swing.JLabel();
         layeredPane = new javax.swing.JLayeredPane();
-        Layout_button = new javax.swing.JPanel();
-        btn_tabel = new javax.swing.JPanel();
-        jLabel28 = new javax.swing.JLabel();
-        btn_input = new javax.swing.JPanel();
-        jLabel29 = new javax.swing.JLabel();
-        btn_tambah = new javax.swing.JPanel();
-        jLabel27 = new javax.swing.JLabel();
         Layout_Tabel = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        btn_tambahInputBarang = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tabelInput = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
-        txtTotalPembelian = new javax.swing.JLabel();
+        txt_totalPembelian = new javax.swing.JLabel();
         Layout_ListBarang = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tabelListBarang = new javax.swing.JTable();
+        btn_hapusList = new javax.swing.JButton();
+        btn_tampilkanList = new javax.swing.JButton();
+        Layout_riwayat = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tabel_riwayatPembelian = new javax.swing.JTable();
         Layout_Tambah = new javax.swing.JPanel();
         jLabel32 = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
+        btn_tambahBarang = new javax.swing.JButton();
         jLabel37 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
-        jTextField9 = new javax.swing.JTextField();
-        jTextField10 = new javax.swing.JTextField();
+        input_namaBarang = new javax.swing.JTextField();
+        input_kode = new javax.swing.JTextField();
+        input_satuan = new javax.swing.JTextField();
         jLabel34 = new javax.swing.JLabel();
-        Layout_Input = new javax.swing.JPanel();
-        jLabel11 = new javax.swing.JLabel();
-        inputKategori = new javax.swing.JComboBox();
-        jLabel12 = new javax.swing.JLabel();
-        inputNamaBarang = new javax.swing.JComboBox();
-        jLabel26 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel30 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jLabel31 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
+        input_kategori = new javax.swing.JComboBox();
+        btn_tambahKategori = new javax.swing.JButton();
+        jLabel35 = new javax.swing.JLabel();
+        input_hargaJual = new javax.swing.JTextField();
+        jLabel36 = new javax.swing.JLabel();
+        input_diskon = new javax.swing.JTextField();
+        Layout_button = new javax.swing.JPanel();
+        btn_tabel = new javax.swing.JPanel();
+        jLabel28 = new javax.swing.JLabel();
+        btn_tambah = new javax.swing.JPanel();
+        jLabel27 = new javax.swing.JLabel();
         passwordProfile = new javax.swing.JPanel();
         passwordSave = new javax.swing.JButton();
         passwordCancel = new javax.swing.JButton();
@@ -153,9 +152,6 @@ public class Karyawan extends javax.swing.JFrame {
         backEditProfile = new javax.swing.JButton();
         saveEditProfile = new javax.swing.JButton();
         browseEditProfile = new javax.swing.JButton();
-        Layout_riwayat = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -306,6 +302,232 @@ public class Karyawan extends javax.swing.JFrame {
 
         bg.add(Tittle, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 30, 720, 100));
 
+        Layout_Tabel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btn_tambahInputBarang.setText("Proses");
+        btn_tambahInputBarang.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_tambahInputBarangActionPerformed(evt);
+            }
+        });
+        Layout_Tabel.add(btn_tambahInputBarang, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 280, -1, -1));
+
+        tabelInput.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "Kode", "Nama", "QTerima", "Harga Satuan", "QBonus", "Total"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class
+            };
+            boolean[] canEdit = new boolean [] {
+                true, false, true, true, true, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tabelInput.setGridColor(new java.awt.Color(240, 240, 240));
+        tabelInput.setRowHeight(20);
+        jScrollPane2.setViewportView(tabelInput);
+        if (tabelInput.getColumnModel().getColumnCount() > 0) {
+            tabelInput.getColumnModel().getColumn(0).setResizable(false);
+            tabelInput.getColumnModel().getColumn(0).setPreferredWidth(50);
+            tabelInput.getColumnModel().getColumn(1).setResizable(false);
+            tabelInput.getColumnModel().getColumn(1).setPreferredWidth(200);
+            tabelInput.getColumnModel().getColumn(2).setResizable(false);
+            tabelInput.getColumnModel().getColumn(2).setPreferredWidth(70);
+            tabelInput.getColumnModel().getColumn(3).setResizable(false);
+            tabelInput.getColumnModel().getColumn(4).setResizable(false);
+            tabelInput.getColumnModel().getColumn(4).setPreferredWidth(70);
+            tabelInput.getColumnModel().getColumn(5).setResizable(false);
+        }
+
+        Layout_Tabel.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 710, 220));
+
+        jLabel1.setText("Total Pembelian :   Rp.");
+        Layout_Tabel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 240, 170, -1));
+        Layout_Tabel.add(txt_totalPembelian, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 240, 120, 20));
+
+        Layout_ListBarang.setBackground(new java.awt.Color(255, 255, 255));
+        Layout_ListBarang.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        tabelListBarang.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "Kode Barang", "Nama Barang", "Kategori", "Harga Jual", "Diskon", "Stok"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tabelListBarang.setGridColor(new java.awt.Color(240, 240, 240));
+        tabelListBarang.setRowHeight(30);
+        tabelListBarang.getTableHeader().setReorderingAllowed(false);
+        jScrollPane3.setViewportView(tabelListBarang);
+        if (tabelListBarang.getColumnModel().getColumnCount() > 0) {
+            tabelListBarang.getColumnModel().getColumn(0).setResizable(false);
+            tabelListBarang.getColumnModel().getColumn(0).setPreferredWidth(20);
+            tabelListBarang.getColumnModel().getColumn(1).setResizable(false);
+            tabelListBarang.getColumnModel().getColumn(1).setPreferredWidth(140);
+            tabelListBarang.getColumnModel().getColumn(2).setResizable(false);
+            tabelListBarang.getColumnModel().getColumn(2).setPreferredWidth(50);
+            tabelListBarang.getColumnModel().getColumn(3).setResizable(false);
+            tabelListBarang.getColumnModel().getColumn(3).setPreferredWidth(20);
+            tabelListBarang.getColumnModel().getColumn(4).setResizable(false);
+            tabelListBarang.getColumnModel().getColumn(5).setResizable(false);
+        }
+
+        Layout_ListBarang.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 690, 340));
+
+        btn_hapusList.setText("Hapus");
+        btn_hapusList.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_hapusListActionPerformed(evt);
+            }
+        });
+        Layout_ListBarang.add(btn_hapusList, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 360, 90, -1));
+
+        btn_tampilkanList.setText("Tampilkan");
+        Layout_ListBarang.add(btn_tampilkanList, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 360, 110, -1));
+
+        Layout_riwayat.setBackground(new java.awt.Color(255, 255, 255));
+        Layout_riwayat.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        tabel_riwayatPembelian.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "ID Restok", "DATE", "Total Pembelian"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tabel_riwayatPembelian.setGridColor(new java.awt.Color(240, 240, 240));
+        tabel_riwayatPembelian.setRowHeight(50);
+        tabel_riwayatPembelian.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(tabel_riwayatPembelian);
+        if (tabel_riwayatPembelian.getColumnModel().getColumnCount() > 0) {
+            tabel_riwayatPembelian.getColumnModel().getColumn(0).setResizable(false);
+            tabel_riwayatPembelian.getColumnModel().getColumn(0).setPreferredWidth(20);
+            tabel_riwayatPembelian.getColumnModel().getColumn(1).setResizable(false);
+            tabel_riwayatPembelian.getColumnModel().getColumn(1).setPreferredWidth(140);
+            tabel_riwayatPembelian.getColumnModel().getColumn(2).setResizable(false);
+        }
+
+        Layout_riwayat.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 670, 380));
+
+        Layout_Tambah.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel32.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel32.setText("Kategori  :");
+        Layout_Tambah.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, 90, -1));
+
+        jLabel33.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel33.setText("Satuan  :");
+        Layout_Tambah.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 150, 90, -1));
+
+        btn_tambahBarang.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        btn_tambahBarang.setText("Tambah");
+        btn_tambahBarang.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_tambahBarangActionPerformed(evt);
+            }
+        });
+        Layout_Tambah.add(btn_tambahBarang, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 280, -1, -1));
+
+        jLabel37.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel37.setText("Kode   :");
+        Layout_Tambah.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 30, 70, -1));
+
+        input_namaBarang.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        Layout_Tambah.add(input_namaBarang, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 110, 230, -1));
+
+        input_kode.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        Layout_Tambah.add(input_kode, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 30, 230, -1));
+
+        input_satuan.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        Layout_Tambah.add(input_satuan, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 150, 230, -1));
+
+        jLabel34.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel34.setText("Nama Barang  :");
+        Layout_Tambah.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 110, 140, -1));
+
+        input_kategori.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        Layout_Tambah.add(input_kategori, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 70, 230, 30));
+
+        btn_tambahKategori.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        btn_tambahKategori.setText("+");
+        btn_tambahKategori.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_tambahKategoriActionPerformed(evt);
+            }
+        });
+        Layout_Tambah.add(btn_tambahKategori, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 70, 50, 30));
+
+        jLabel35.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel35.setText("Harga Jual  :");
+        Layout_Tambah.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 190, 110, -1));
+
+        input_hargaJual.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        Layout_Tambah.add(input_hargaJual, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 190, 230, -1));
+
+        jLabel36.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel36.setText("Diskon   :");
+        Layout_Tambah.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 230, 80, -1));
+
+        input_diskon.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        Layout_Tambah.add(input_diskon, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 230, 230, -1));
+
         Layout_button.setBackground(new java.awt.Color(255, 255, 255));
         Layout_button.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -331,28 +553,6 @@ public class Karyawan extends javax.swing.JFrame {
 
         Layout_button.add(btn_tabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 110, 40));
 
-        btn_input.setBackground(new java.awt.Color(64, 43, 100));
-        btn_input.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btn_inputMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btn_inputMouseExited(evt);
-            }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                btn_inputMousePressed(evt);
-            }
-        });
-        btn_input.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel29.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel29.setForeground(new java.awt.Color(240, 240, 240));
-        jLabel29.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel29.setText("Input Barang");
-        btn_input.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 90, 40));
-
-        Layout_button.add(btn_input, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, 110, 40));
-
         btn_tambah.setBackground(new java.awt.Color(64, 43, 100));
         btn_tambah.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -373,180 +573,7 @@ public class Karyawan extends javax.swing.JFrame {
         jLabel27.setText("Tambah List");
         btn_tambah.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 90, 40));
 
-        Layout_button.add(btn_tambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 10, 110, 40));
-
-        Layout_Tabel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jButton1.setText("Proses");
-        Layout_Tabel.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 280, -1, -1));
-
-        tabelInput.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
-            },
-            new String [] {
-                "Kode", "Nama", "QTerima", "Harga Satuan", "QBonus", "Total"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                true, false, true, true, true, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        tabelInput.setGridColor(new java.awt.Color(240, 240, 240));
-        tabelInput.setRowHeight(20);
-        jScrollPane2.setViewportView(tabelInput);
-        if (tabelInput.getColumnModel().getColumnCount() > 0) {
-            tabelInput.getColumnModel().getColumn(0).setResizable(false);
-            tabelInput.getColumnModel().getColumn(0).setPreferredWidth(50);
-            tabelInput.getColumnModel().getColumn(1).setResizable(false);
-            tabelInput.getColumnModel().getColumn(1).setPreferredWidth(200);
-            tabelInput.getColumnModel().getColumn(2).setResizable(false);
-            tabelInput.getColumnModel().getColumn(2).setPreferredWidth(70);
-            tabelInput.getColumnModel().getColumn(3).setResizable(false);
-            tabelInput.getColumnModel().getColumn(4).setResizable(false);
-            tabelInput.getColumnModel().getColumn(4).setPreferredWidth(70);
-            tabelInput.getColumnModel().getColumn(5).setResizable(false);
-        }
-
-        Layout_Tabel.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 710, 190));
-
-        jLabel1.setText("Total Pembelian :   Rp.");
-        Layout_Tabel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 220, 170, -1));
-        Layout_Tabel.add(txtTotalPembelian, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 220, 120, 20));
-
-        Layout_ListBarang.setBackground(new java.awt.Color(255, 255, 255));
-        Layout_ListBarang.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        tabelListBarang.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Kode Barang", "Nama Barang", "Kategori", "Stok"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        tabelListBarang.setGridColor(new java.awt.Color(240, 240, 240));
-        tabelListBarang.setRowHeight(50);
-        tabelListBarang.getTableHeader().setReorderingAllowed(false);
-        jScrollPane3.setViewportView(tabelListBarang);
-        if (tabelListBarang.getColumnModel().getColumnCount() > 0) {
-            tabelListBarang.getColumnModel().getColumn(0).setResizable(false);
-            tabelListBarang.getColumnModel().getColumn(0).setPreferredWidth(20);
-            tabelListBarang.getColumnModel().getColumn(1).setResizable(false);
-            tabelListBarang.getColumnModel().getColumn(1).setPreferredWidth(140);
-            tabelListBarang.getColumnModel().getColumn(2).setResizable(false);
-            tabelListBarang.getColumnModel().getColumn(2).setPreferredWidth(50);
-            tabelListBarang.getColumnModel().getColumn(3).setResizable(false);
-            tabelListBarang.getColumnModel().getColumn(3).setPreferredWidth(20);
-        }
-
-        Layout_ListBarang.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 670, 380));
-
-        Layout_Tambah.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel32.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel32.setText("Kategori  :");
-        Layout_Tambah.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 110, 90, -1));
-
-        jLabel33.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel33.setText("Satuan  :");
-        Layout_Tambah.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 150, 90, -1));
-
-        jButton3.setText("Tambah");
-        Layout_Tambah.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 250, -1, -1));
-
-        jLabel37.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel37.setText("Kode  :");
-        Layout_Tambah.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 70, 70, -1));
-
-        jTextField7.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        Layout_Tambah.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 150, 230, -1));
-
-        jTextField8.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        Layout_Tambah.add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 70, 230, -1));
-
-        jTextField9.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        Layout_Tambah.add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 110, 230, -1));
-
-        jTextField10.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        Layout_Tambah.add(jTextField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 190, 230, -1));
-
-        jLabel34.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel34.setText("Nama Barang  :");
-        Layout_Tambah.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 190, 140, -1));
-
-        Layout_Input.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel11.setText("Kategori  :");
-        Layout_Input.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 40, 90, -1));
-
-        inputKategori.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        inputKategori.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                inputKategoriActionPerformed(evt);
-            }
-        });
-        Layout_Input.add(inputKategori, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 40, 250, -1));
-
-        jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel12.setText("Nama Barang  :");
-        Layout_Input.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 80, 140, -1));
-
-        inputNamaBarang.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        inputNamaBarang.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-- Pilih Barang --" }));
-        Layout_Input.add(inputNamaBarang, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 80, 250, -1));
-
-        jLabel26.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel26.setText("QTerima  :");
-        Layout_Input.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, 90, -1));
-
-        jTextField1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        Layout_Input.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 120, 250, -1));
-
-        jLabel30.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel30.setText("Harga Satuan  :");
-        Layout_Input.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 160, 130, -1));
-
-        jTextField2.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        Layout_Input.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 160, 250, -1));
-
-        jLabel31.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel31.setText("QBonus  :");
-        Layout_Input.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 200, 90, -1));
-
-        jTextField3.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        Layout_Input.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 200, 250, -1));
-
-        jButton2.setText("Tambah");
-        Layout_Input.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 260, -1, -1));
+        Layout_button.add(btn_tambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, 110, 40));
 
         passwordProfile.setBackground(new java.awt.Color(255, 255, 255));
         passwordProfile.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -723,48 +750,6 @@ public class Karyawan extends javax.swing.JFrame {
         browseEditProfile.setText("Browse");
         editProfile.add(browseEditProfile, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 190, 90, 30));
 
-        Layout_riwayat.setBackground(new java.awt.Color(255, 255, 255));
-        Layout_riwayat.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
-            },
-            new String [] {
-                "ID Pemasukan Barang", "DATE"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jTable1.setGridColor(new java.awt.Color(240, 240, 240));
-        jTable1.setRowHeight(50);
-        jTable1.getTableHeader().setReorderingAllowed(false);
-        jScrollPane1.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(0).setResizable(false);
-            jTable1.getColumnModel().getColumn(0).setPreferredWidth(20);
-            jTable1.getColumnModel().getColumn(1).setResizable(false);
-            jTable1.getColumnModel().getColumn(1).setPreferredWidth(140);
-        }
-
-        Layout_riwayat.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 670, 380));
-
         javax.swing.GroupLayout layeredPaneLayout = new javax.swing.GroupLayout(layeredPane);
         layeredPane.setLayout(layeredPaneLayout);
         layeredPaneLayout.setHorizontalGroup(
@@ -793,8 +778,6 @@ public class Karyawan extends javax.swing.JFrame {
                 .addGroup(layeredPaneLayout.createSequentialGroup()
                     .addComponent(passwordProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 770, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
-            .addGroup(layeredPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(Layout_Input, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 770, Short.MAX_VALUE))
             .addGroup(layeredPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layeredPaneLayout.createSequentialGroup()
                     .addComponent(Layout_Tambah, javax.swing.GroupLayout.DEFAULT_SIZE, 755, Short.MAX_VALUE)
@@ -833,11 +816,6 @@ public class Karyawan extends javax.swing.JFrame {
                     .addGap(0, 0, Short.MAX_VALUE)))
             .addGroup(layeredPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layeredPaneLayout.createSequentialGroup()
-                    .addContainerGap(63, Short.MAX_VALUE)
-                    .addComponent(Layout_Input, javax.swing.GroupLayout.PREFERRED_SIZE, 408, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap()))
-            .addGroup(layeredPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layeredPaneLayout.createSequentialGroup()
                     .addContainerGap(59, Short.MAX_VALUE)
                     .addComponent(Layout_Tambah, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(47, 47, 47)))
@@ -846,15 +824,14 @@ public class Karyawan extends javax.swing.JFrame {
                     .addComponent(Layout_ListBarang, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 37, Short.MAX_VALUE)))
         );
-        layeredPane.setLayer(Layout_button, javax.swing.JLayeredPane.DEFAULT_LAYER);
         layeredPane.setLayer(Layout_Tabel, javax.swing.JLayeredPane.DEFAULT_LAYER);
         layeredPane.setLayer(Layout_ListBarang, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        layeredPane.setLayer(Layout_riwayat, javax.swing.JLayeredPane.DEFAULT_LAYER);
         layeredPane.setLayer(Layout_Tambah, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        layeredPane.setLayer(Layout_Input, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        layeredPane.setLayer(Layout_button, javax.swing.JLayeredPane.DEFAULT_LAYER);
         layeredPane.setLayer(passwordProfile, javax.swing.JLayeredPane.DEFAULT_LAYER);
         layeredPane.setLayer(lihatProfile, javax.swing.JLayeredPane.DEFAULT_LAYER);
         layeredPane.setLayer(editProfile, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        layeredPane.setLayer(Layout_riwayat, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         bg.add(layeredPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 130, 710, 410));
 
@@ -912,6 +889,8 @@ public class Karyawan extends javax.swing.JFrame {
         switchPanels(Layout_riwayat);
         layoutActive="btn_riwayat";
         txt_Tittle.setText("Riwayat");
+        
+        setTableRiwayat(tabel_riwayatPembelian);
         
     }//GEN-LAST:event_btn_riwayatMousePressed
 
@@ -1051,9 +1030,21 @@ public class Karyawan extends javax.swing.JFrame {
     private void btn_tambahMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_tambahMousePressed
         switchPanels(Layout_Tambah);
         layeredPane.add(Layout_button);
-        resetColor(btn_input);
         resetColor(btn_tabel);
         buttonActive="btn_tambah";
+        
+        input_kategori.removeAllItems();
+        input_kategori.addItem("-- Pilih Kategori --");
+        try{
+            sql="SELECT namaKategori FROM kategori";
+            rs=stat.executeQuery(sql);
+            while(rs.next()){
+                input_kategori.addItem(rs.getString(1));
+            }
+        }catch(Exception x){
+            System.out.println(x);
+        }
+            
     }//GEN-LAST:event_btn_tambahMousePressed
 
     private void btn_tabelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_tabelMouseEntered
@@ -1069,58 +1060,104 @@ public class Karyawan extends javax.swing.JFrame {
     private void btn_tabelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_tabelMousePressed
         switchPanels(Layout_Tabel);
         layeredPane.add(Layout_button);
-        resetColor(btn_input);
         resetColor(btn_tambah);
         buttonActive="btn_tabel";
     }//GEN-LAST:event_btn_tabelMousePressed
 
-    private void btn_inputMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_inputMouseEntered
-        setColor(btn_input);
-    }//GEN-LAST:event_btn_inputMouseEntered
-
-    private void btn_inputMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_inputMouseExited
-        if(!buttonActive.equals("btn_input")){
-            resetColor(btn_input);
-        }
-    }//GEN-LAST:event_btn_inputMouseExited
-
-    private void btn_inputMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_inputMousePressed
-        switchPanels(Layout_Input);
-        layeredPane.add(Layout_button);
-        resetColor(btn_tambah);
-        resetColor(btn_tabel);
-        buttonActive="btn_input";
-        
-        inputKategori.removeAllItems();
-        inputKategori.addItem("-- Pilih Kategori --");
-        try{
-            sql="SELECT DISTINCT kategori from barang order by kategori ASC";
-            rs=stat.executeQuery(sql);
-            
-            if(rs.next()){
-                inputKategori.addItem(rs.getString(1));
+    private void btn_tambahKategoriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_tambahKategoriActionPerformed
+        String s=JOptionPane.showInputDialog(null,"Masukkan nama kategori");
+        if(s!=null && !s.equalsIgnoreCase("")){
+            try{
+                sql="INSERT into kategori (namaKategori) values ('"+s+"')";
+                stat.executeUpdate(sql);
+            }catch(Exception x){
+                System.out.println(x);
             }
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(null, e.getMessage());
-        }
-    }//GEN-LAST:event_btn_inputMousePressed
-
-    private void inputKategoriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputKategoriActionPerformed
-        inputNamaBarang.removeAllItems();
-        inputNamaBarang.addItem("-- Pilih Barang --");
-        String kategori =String.valueOf(inputKategori.getSelectedItem());
-        
-        try{
-            sql="SELECT nama_barang from barang WHERE kategori ='"+kategori+"'order by nama_barang ASC";
-            rs=stat.executeQuery(sql);
-            
-            while(rs.next()){
-                inputNamaBarang.addItem(rs.getString(1));
+            input_kategori.removeAllItems();
+            input_kategori.addItem("-- Pilih Kategori --");
+            try{
+                sql="SELECT namaKategori FROM kategori";
+                rs=stat.executeQuery(sql);
+                while(rs.next()){
+                    input_kategori.addItem(rs.getString(1));
+                }
+            }catch(Exception x){
+                System.out.println(x);
             }
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(null, e.getMessage());
         }
-    }//GEN-LAST:event_inputKategoriActionPerformed
+    }//GEN-LAST:event_btn_tambahKategoriActionPerformed
+
+    private void btn_tambahBarangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_tambahBarangActionPerformed
+        int idKategori;
+        try{
+            sql="SELECT idKategori FROM kategori WHERE namaKategori='"+input_kategori.getSelectedItem()+"'";
+            rs=stat.executeQuery(sql);
+            rs.next();
+            idKategori=Integer.parseInt(rs.getString(1));
+            
+            sql="INSERT INTO barang Values('"+input_kode.getText()+"','"+input_namaBarang.getText()+"','"+idKategori+"',0,'"+input_satuan.getText()+"','"+input_hargaJual.getText()+"','"+input_diskon.getText()+"')";
+            stat.executeUpdate(sql);
+            
+            JOptionPane.showMessageDialog(null, "Berhasil menambah data");
+            
+            kosongkan_form();
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null,"Invalid Input\n"+e);
+        }
+    }//GEN-LAST:event_btn_tambahBarangActionPerformed
+
+    private void btn_hapusListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_hapusListActionPerformed
+        int baris = tabelListBarang.getSelectedRow();
+        String[] options = {"Ya","Tidak"};
+        int x=JOptionPane.showOptionDialog(null,"Yakin ingin menghapus barang ?","Confirm",JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[1]);
+
+        //        System.out.print(kasirTable.getValueAt(baris, 0));
+        if(x==0){
+            try{
+                sql="DELETE FROM barang WHERE idBarang='"+tabelListBarang.getValueAt(baris, 0)+"'";
+                stat.execute(sql);
+                JOptionPane.showMessageDialog(null, "Data berhasil dihapus");
+                setTableData(tabelListBarang);
+            }catch(Exception e){
+                JOptionPane.showMessageDialog(this,e.getMessage());
+            }
+        }
+    }//GEN-LAST:event_btn_hapusListActionPerformed
+
+    private void btn_tambahInputBarangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_tambahInputBarangActionPerformed
+        int idRestok;
+        try{
+            sql="INSERT INTO restok values (NULL,'"+idAkun+"',CURDATE(),'"+txt_totalPembelian.getText()+"')";
+            stat.executeUpdate(sql);
+        }catch(Exception e){
+            System.out.println(e);
+        }
+        try{
+            sql="SELECT idRestok FROM restok ORDER BY tanggal DESC LIMIT 1";
+            rs=stat.executeQuery(sql);
+            rs.next();
+            idRestok=Integer.parseInt(rs.getString(1));
+            
+            for(int i=0;tabelInput.getValueAt(i, 0)!=null;i++){
+                sql="INSERT INTO restok_detail values (NULL,'"+idRestok+"','"+tabelInput.getValueAt(i, 0)+"','" + tabelInput.getValueAt(i, 2) + "','"+tabelInput.getValueAt(i, 4)+"','"+tabelInput.getValueAt(i, 3)+"')";
+                stat.executeUpdate(sql);
+                
+                int tambahStok=Integer.parseInt(tabelInput.getValueAt(i, 2).toString())+Integer.parseInt(tabelInput.getValueAt(i, 4).toString());
+                sql="UPDATE barang SET stok=stok+'"+tambahStok+"'WHERE idBarang='"+tabelInput.getValueAt(i, 0)+"'";
+                stat.execute(sql);
+            }
+            
+            JOptionPane.showMessageDialog(null, "Input Barang Berhasil");
+            DefaultTableModel dtm = (DefaultTableModel) tabelInput.getModel();
+            dtm.setRowCount(0);
+            dtm.setRowCount(8);
+            txt_totalPembelian.setText("");
+            
+        }catch(Exception e){
+            System.out.println(e);
+        }
+        
+    }//GEN-LAST:event_btn_tambahInputBarangActionPerformed
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -1146,13 +1183,22 @@ public class Karyawan extends javax.swing.JFrame {
             }
         }
     }
+    
+    private void kosongkan_form(){
+        input_kode.setText("");
+        input_kategori.setSelectedItem("-- Pilih jabatan --");
+        input_namaBarang.setText("");
+        input_satuan.setText("");
+        input_hargaJual.setText("");
+        input_diskon.setText("");
+    }
 
     private void setTableData(JTable dataTable){
         try{
             int rows=0;
             int rowIndex=0;
             
-            sql="SELECT idBarang,namaBarang,kategori.namaKategori,stok FROM barang LEFT JOIN kategori USING (idKategori)";
+            sql="SELECT idBarang,namaBarang,kategori.namaKategori,hargaJual,diskon,stok FROM barang LEFT JOIN kategori USING (idKategori)";
             rs=stat.executeQuery(sql);
             if(rs.next()){
                 rs.last();
@@ -1160,15 +1206,17 @@ public class Karyawan extends javax.swing.JFrame {
                 rs.beforeFirst();
             }
 //            System.out.println(rows);
-            String[][] data=new String[rows][4];
+            String[][] data=new String[rows][6];
             while(rs.next()){
                 data[rowIndex][0]=rs.getInt(1)+"";
                 data[rowIndex][1]=rs.getString(2);
                 data[rowIndex][2]=rs.getString(3);
                 data[rowIndex][3]=rs.getInt(4)+"";
+                data[rowIndex][4]=rs.getInt(5)+"";
+                data[rowIndex][5]=rs.getInt(6)+"";
                 rowIndex++;
             }
-            String[] cols={"Kode","Nama Barang","Kategori","Stok"};
+            String[] cols={"Kode","Nama Barang","Kategori","Harga Jual","Diskon","Stok"};
             dataTable.getColumnModel().getColumn(0).setPreferredWidth(20);
             dataTable.getColumnModel().getColumn(2).setPreferredWidth(50);
             dataTable.getColumnModel().getColumn(3).setPreferredWidth(20);
@@ -1180,10 +1228,85 @@ public class Karyawan extends javax.swing.JFrame {
             System.out.print(e);
         }
     }
+    
+    private void setTableRiwayat(JTable dataTable){
+        try{
+            int rows=0;
+            int rowIndex=0;
+            
+            sql="SELECT idRestok,tanggal,totalPembelian FROM restok WHERE idKaryawan='"+idAkun+"'";
+            rs=stat.executeQuery(sql);
+            if(rs.next()){
+                rs.last();
+                rows=rs.getRow();
+                rs.beforeFirst();
+            }
+            String[][] data=new String[rows][3];
+            while(rs.next()){
+                data[rowIndex][0]=rs.getInt(1)+"";
+                data[rowIndex][1]=rs.getString(2);
+                data[rowIndex][2]=rs.getInt(3)+"";
+                rowIndex++;
+            }
+            String[] cols={"ID Restok","DATE","Total Pembelian"};
+            dataTable.getColumnModel().getColumn(0).setPreferredWidth(20);
+            dataTable.getColumnModel().getColumn(1).setPreferredWidth(50);
+            dataTable.getColumnModel().getColumn(2).setPreferredWidth(20);
+            DefaultTableModel model = new DefaultTableModel(data,cols);
+            dataTable.setModel(model);
+            
+            
+        }catch(Exception e){
+            System.out.print(e);
+        }
+    }
+    
+    
+    public void addListener(){
+        tabelInput.getModel().addTableModelListener(new TableModelListener() {
+            
+            public void tableChanged(TableModelEvent e) {
+                if (e.getType() == TableModelEvent.UPDATE) {
+                    final int row = e.getFirstRow();
+                    final int column = e.getColumn();
+                    switch(column){
+                        case 0:
+                            int id_barang=(int) tabelInput.getValueAt(row, column);
+                            try{
+                                sql="SELECT namaBarang FROM barang WHERE idBarang='"+id_barang+"'";
+                                rs=stat.executeQuery(sql);
+                                rs.next();
+                                tabelInput.setValueAt(rs.getString(1), row, 1);
+                            }catch(Exception x){
+                                System.out.print(x);
+                            }
+                            break;
+                        case 2:
+                        case 3:
+                            if(tabelInput.getValueAt(row, 2)!=null && tabelInput.getValueAt(row, 3)!=null)
+                                try{
+                                    int totalHarga=Integer.parseInt(tabelInput.getValueAt(row, 2).toString()) * Integer.parseInt(tabelInput.getValueAt(row, 3).toString());
+                                    tabelInput.setValueAt(totalHarga, row, 5);
+                                    int totalPembelian=0;
+                                    for(int i=0;tabelInput.getValueAt(i, 5)!=null;i++){
+                                        totalPembelian+=Integer.parseInt(tabelInput.getValueAt(i,5).toString());
+                                    }
+                                    txt_totalPembelian.setText(String.valueOf(totalPembelian));
+                                }catch(Exception x){
+                                    System.out.print(x);
+                                }
+                            break;
+                    }
+                    
+                }
+            }
+        });    
+    }
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Foto;
     private javax.swing.JPanel Identitas;
-    private javax.swing.JPanel Layout_Input;
     private javax.swing.JPanel Layout_ListBarang;
     private javax.swing.JPanel Layout_Tabel;
     private javax.swing.JPanel Layout_Tambah;
@@ -1194,7 +1317,7 @@ public class Karyawan extends javax.swing.JFrame {
     private javax.swing.JButton backEditProfile;
     private javax.swing.JPanel bg;
     private javax.swing.JButton browseEditProfile;
-    private javax.swing.JPanel btn_input;
+    private javax.swing.JButton btn_hapusList;
     private javax.swing.JPanel btn_inputBarang;
     private javax.swing.JPanel btn_listBarang;
     private javax.swing.JPanel btn_logout;
@@ -1202,19 +1325,22 @@ public class Karyawan extends javax.swing.JFrame {
     private javax.swing.JPanel btn_riwayat;
     private javax.swing.JPanel btn_tabel;
     private javax.swing.JPanel btn_tambah;
+    private javax.swing.JButton btn_tambahBarang;
+    private javax.swing.JButton btn_tambahInputBarang;
+    private javax.swing.JButton btn_tambahKategori;
+    private javax.swing.JButton btn_tampilkanList;
     private javax.swing.JButton editData;
     private javax.swing.JPanel editProfile;
     private javax.swing.JTextField email1;
     private javax.swing.JButton gantiPassword;
-    private javax.swing.JComboBox inputKategori;
-    private javax.swing.JComboBox inputNamaBarang;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JTextField input_diskon;
+    private javax.swing.JTextField input_hargaJual;
+    private javax.swing.JComboBox input_kategori;
+    private javax.swing.JTextField input_kode;
+    private javax.swing.JTextField input_namaBarang;
+    private javax.swing.JTextField input_satuan;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
@@ -1228,16 +1354,14 @@ public class Karyawan extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel30;
-    private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1251,14 +1375,6 @@ public class Karyawan extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
     private javax.swing.JLabel jabatan1;
     private javax.swing.JPanel kolomPassword;
     private javax.swing.JLayeredPane layeredPane;
@@ -1273,11 +1389,12 @@ public class Karyawan extends javax.swing.JFrame {
     private javax.swing.JButton saveEditProfile;
     private javax.swing.JTable tabelInput;
     private javax.swing.JTable tabelListBarang;
+    private javax.swing.JTable tabel_riwayatPembelian;
     private javax.swing.JLabel textEmail;
     private javax.swing.JLabel textJabatan;
     private javax.swing.JLabel textNama;
     private javax.swing.JLabel textNoTelp;
-    private javax.swing.JLabel txtTotalPembelian;
     private javax.swing.JLabel txt_Tittle;
+    private javax.swing.JLabel txt_totalPembelian;
     // End of variables declaration//GEN-END:variables
 }

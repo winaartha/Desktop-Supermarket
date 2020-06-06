@@ -65,11 +65,6 @@ public class Login extends javax.swing.JFrame {
         txtUsername.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         txtUsername.setForeground(new java.awt.Color(51, 51, 51));
         txtUsername.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtUsername.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtUsernameActionPerformed(evt);
-            }
-        });
         bg3.add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 290, 315, 37));
 
         txtPassword.setBackground(new java.awt.Color(204, 204, 204));
@@ -118,38 +113,33 @@ public class Login extends javax.swing.JFrame {
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         try{
-            sql = "SELECT * FROM akun WHERE username='"+txtUsername.getText()+"' AND password='"+txtPassword.getText()+"'";
+            sql = "SELECT * FROM akun INNER JOIN jabatan using (idJabatan) WHERE username='"+txtUsername.getText()+"' AND password=MD5('"+txtPassword.getText()+"')";
             rs = stat.executeQuery(sql);
 
             if(rs.next()){
-                if((txtUsername.getText().equals(rs.getString("username"))) && txtPassword.getText().equals(rs.getString("password"))){
-                    jabatan = rs.getString("jabatan");
-                    id_user = rs.getInt("idAkun");
-                    this.setVisible(false);
-                    switch(jabatan){
-                        case "Manager":
-                            new Manager(id_user).setVisible(true);
-                            break;
-                        case "Karyawan":
-                            new Karyawan(id_user).setVisible(true);
-                            break;
-                        case "Kasir":
-                            new Kasir(id_user).setVisible(true);
-                            break;
-                    }             
-                }else{
-                    JOptionPane.showMessageDialog(null, "Username atau password salah");
-                    kosongkan_form();
-                }
+                jabatan = rs.getString("namaJabatan");
+                id_user = rs.getInt("idAkun");
+                this.setVisible(false);
+                switch(jabatan){
+                    case "Manager":
+                        new Manager(id_user).setVisible(true);
+                        break;
+                    case "Karyawan":
+                        new Karyawan(id_user).setVisible(true);
+                        break;
+                    case "Kasir":
+                        new Kasir(id_user).setVisible(true);
+                        break;
+                } 
+            }else{
+                JOptionPane.showMessageDialog(null, "Username atau password salah");
+                kosongkan_form();
             }
+            
         }catch (SQLException | HeadlessException e){
             JOptionPane.showMessageDialog(this, e.getMessage());
         }
     }//GEN-LAST:event_btnLoginActionPerformed
-
-    private void txtUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsernameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtUsernameActionPerformed
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {

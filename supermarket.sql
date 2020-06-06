@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.1
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 02 Jun 2020 pada 05.36
--- Versi server: 10.4.8-MariaDB
--- Versi PHP: 7.3.10
+-- Waktu pembuatan: 06 Jun 2020 pada 02.06
+-- Versi server: 10.4.11-MariaDB
+-- Versi PHP: 7.4.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -33,21 +32,23 @@ CREATE TABLE `akun` (
   `nama` varchar(50) DEFAULT NULL,
   `noTelp` varchar(15) DEFAULT NULL,
   `email` varchar(20) DEFAULT NULL,
-  `jabatan` varchar(10) DEFAULT NULL,
+  `idJabatan` varchar(10) DEFAULT NULL,
   `foto` blob DEFAULT NULL,
   `tglMasuk` date DEFAULT NULL,
   `username` varchar(15) DEFAULT NULL,
-  `password` varchar(15) DEFAULT NULL
+  `password` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `akun`
 --
 
-INSERT INTO `akun` (`idAkun`, `nama`, `noTelp`, `email`, `jabatan`, `foto`, `tglMasuk`, `username`, `password`) VALUES
-(1, 'I Nyoman Wina Artha Setiawan', '08133822357x', 'arthazwina@gmail.com', 'Manager', NULL, '2020-05-24', 'admin', 'admin'),
-(2, 'Hairul Lana', '081999999999', 'hairullana@gmail.com', 'Kasir', NULL, '2020-05-24', 'kasir', 'kasir'),
-(3, 'Putu Bayu Baskara', '081888888888', 'yubayu@gmail.com', 'Karyawan', NULL, '2020-05-24', 'karyawan', 'karyawan');
+INSERT INTO `akun` (`idAkun`, `nama`, `noTelp`, `email`, `idJabatan`, `foto`, `tglMasuk`, `username`, `password`) VALUES
+(1, 'I Nyoman Wina Artha Setiawan', '08133822357x', 'arthazwina@gmail.com', '1', NULL, '2020-05-24', 'admin', '21232f297a57a5a743894a0e4a801fc3'),
+(2, 'Hairul Lana', '081999999999', 'hairullana@gmail.com', '3', NULL, '2020-05-24', 'kasir', 'c7911af3adbd12a035b289556d96470a'),
+(3, 'Putu Bayu Baskara', '081888888888', 'yubayu@gmail.com', '2', NULL, '2020-05-24', 'karyawan', '9e014682c94e0f2cc834bf7348bda428'),
+(5, 'Eka Nadya', '081xxxxxxxxx', 'nadya1@gmail.com', '2', NULL, '2020-06-05', 'karyawan2', '0f04e83af329b915fd20112b50b11e9e'),
+(6, 'Nadya Okta', '081xxxxxxxxx', 'nadya2@gmail.com', '3', NULL, '2020-06-05', 'kasir2', '8c86013d8ba23d9b5ade4d6463f81c45');
 
 -- --------------------------------------------------------
 
@@ -71,11 +72,11 @@ CREATE TABLE `barang` (
 --
 
 INSERT INTO `barang` (`idBarang`, `namaBarang`, `idKategori`, `stok`, `satuan`, `hargaJual`, `diskon`, `poin`) VALUES
-(1, 'Leo Kripik Kentang Rumput Laut 14gr', 1, 2, 'pcs', 1000, 500, 0),
-(2, 'Leo Kripik Kentang Sapi Panggang 14gr', 1, -4, 'pcs', 1000, 0, 1000),
-(3, 'Leo kripik kentang ayam original 14gr', 1, 5, 'pcs', 1000, 0, 0),
+(1, 'Leo Kripik Kentang Rumput Laut 14gr', 1, 11, 'pcs', 1000, 500, 1000),
+(2, 'Leo Kripik Kentang Sapi Panggang 14gr', 1, 5, 'pcs', 1000, 0, 1000),
+(3, 'Leo kripik kentang ayam original 14gr', 1, 22, 'pcs', 1000, 0, 0),
 (4, 'Leanet Beef BBQ 8gr', 1, 0, 'pcs', 500, 0, 0),
-(5, 'Leanet Seaweed 8gr', 1, 5, 'pcs', 500, 0, 0),
+(5, 'Leanet Seaweed 8gr', 1, -5, 'pcs', 500, 0, 0),
 (6, 'Piattoz sapi panggang 12gr', 1, 5, 'pcs', 1000, 0, 0),
 (7, 'Piattoz barbeque 12gr', 1, 5, 'pcs', 1000, 0, 0),
 (8, 'Kentang goreng ala french fries 18gr', 1, 5, 'pcs', 1000, 0, 0),
@@ -303,6 +304,26 @@ INSERT INTO `barang` (`idBarang`, `namaBarang`, `idKategori`, `stok`, `satuan`, 
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `jabatan`
+--
+
+CREATE TABLE `jabatan` (
+  `idJabatan` int(11) NOT NULL,
+  `namaJabatan` varchar(15) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `jabatan`
+--
+
+INSERT INTO `jabatan` (`idJabatan`, `namaJabatan`) VALUES
+(1, 'Manager'),
+(2, 'Karyawan'),
+(3, 'Kasir');
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `kategori`
 --
 
@@ -340,14 +361,6 @@ CREATE TABLE `keperluan` (
   `total` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data untuk tabel `keperluan`
---
-
-INSERT INTO `keperluan` (`idKeperluan`, `namaKeperluan`, `tanggal`, `harga`, `quantity`, `total`) VALUES
-(2, 'Bayar listrik', '2020-06-02', 400000, 2, 800000),
-(3, 'Bayar gaji pegawai', '2020-06-02', 2000000, 4, 8000000);
-
 -- --------------------------------------------------------
 
 --
@@ -356,7 +369,7 @@ INSERT INTO `keperluan` (`idKeperluan`, `namaKeperluan`, `tanggal`, `harga`, `qu
 
 CREATE TABLE `log` (
   `idLog` int(11) NOT NULL,
-  `jabatan` varchar(20) DEFAULT NULL,
+  `idJabatan` int(11) DEFAULT NULL,
   `idAkun` int(11) DEFAULT NULL,
   `aktivitas` text DEFAULT NULL,
   `tanggal` date DEFAULT NULL
@@ -382,7 +395,9 @@ CREATE TABLE `pelanggan` (
 
 INSERT INTO `pelanggan` (`idPelanggan`, `namaPelanggan`, `noTelp`, `email`, `poin`) VALUES
 (1, 'Nadya', '081222222222', 'nadya@gmail.com', 991000),
-(2, 'Nadyo', '083333333333', 'nadyo@gmail.com', 200);
+(2, 'Nadyo', '083333333333', 'nadyo@gmail.com', -100),
+(8, 'qwe', '123', '123', 0),
+(9, 'wq', '123', '123', 0);
 
 -- --------------------------------------------------------
 
@@ -396,24 +411,6 @@ CREATE TABLE `restok` (
   `tanggal` date DEFAULT NULL,
   `totalPembelian` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data untuk tabel `restok`
---
-
-INSERT INTO `restok` (`idRestok`, `idKaryawan`, `tanggal`, `totalPembelian`) VALUES
-(1, 3, '2020-05-24', 20),
-(2, 3, '2020-05-24', 6),
-(3, 3, '2020-05-24', 12),
-(4, 3, '2020-05-24', 42),
-(5, 3, '2020-05-25', 20),
-(6, 3, '2020-05-25', 20000),
-(7, 3, '2020-05-25', 8000),
-(8, 3, '2020-05-25', 2000),
-(9, 3, '2020-05-25', 5000),
-(10, 3, '2020-05-25', 5000),
-(11, 3, '2020-05-25', 64800),
-(12, 3, '2020-05-25', 8000);
 
 -- --------------------------------------------------------
 
@@ -430,24 +427,6 @@ CREATE TABLE `restok_detail` (
   `hargaBeliSatuan` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data untuk tabel `restok_detail`
---
-
-INSERT INTO `restok_detail` (`tdRd`, `idRestok`, `idBarang`, `qTerima`, `qBonus`, `hargaBeliSatuan`) VALUES
-(1, 4, 2, 3, 5, 4),
-(2, 4, 3, 4, 2, 5),
-(3, 4, 4, 5, 1, 2),
-(4, 5, 2, 4, 9, 5),
-(5, 5, 2, 4, 3, 5000),
-(6, 5, 3, 4, 6, 2000),
-(7, 5, 5, 1, 1, 2000),
-(8, 5, 4, 1, 2, 5000),
-(9, 5, 3, 1, 1, 5000),
-(10, 5, 1, 2, 4, 32000),
-(11, 5, 5, 4, 3, 200),
-(12, 5, 1, 2, 2, 4000);
-
 -- --------------------------------------------------------
 
 --
@@ -461,19 +440,6 @@ CREATE TABLE `transaksi` (
   `tanggal` date DEFAULT NULL,
   `totalBelanja` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data untuk tabel `transaksi`
---
-
-INSERT INTO `transaksi` (`idTransaksi`, `idKasir`, `idPelanggan`, `tanggal`, `totalBelanja`) VALUES
-(1, 2, 0, '2020-05-24', 7500),
-(2, 2, 1, '2020-05-24', 10000),
-(3, 2, 0, '2020-05-24', 10000),
-(4, 2, 1, '2020-05-25', 5500),
-(5, 2, 0, '2020-05-25', 4500),
-(6, 2, 0, '2020-05-25', 2000),
-(7, 2, 2, '2020-06-02', 2000);
 
 -- --------------------------------------------------------
 
@@ -490,30 +456,6 @@ CREATE TABLE `transaksi_detail` (
   `diskon` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data untuk tabel `transaksi_detail`
---
-
-INSERT INTO `transaksi_detail` (`tdID`, `idTransaksi`, `idBarang`, `hargaJual`, `quantity`, `diskon`) VALUES
-(1, 4, 2, 1000, 4, 0),
-(2, 4, 5, 500, 3, 0),
-(3, 4, 3, 1000, 2, 0),
-(4, 1, 2, 1000, 4, 0),
-(5, 1, 3, 1000, 5, 0),
-(6, 1, 4, 1000, 1, 0),
-(7, 3, 2, 1000, 4, 0),
-(8, 3, 3, 1000, 5, 0),
-(9, 3, 4, 1000, 1, 0),
-(10, 4, 1, 1000, 2, 0),
-(11, 4, 4, 500, 5, 0),
-(12, 4, 5, 500, 2, 0),
-(13, 4, 2, 1000, 4, 0),
-(14, 4, 5, 500, 1, 0),
-(15, 4, 1, 1000, 2, 0),
-(16, 4, 1, 1000, 3, 0),
-(17, 4, 4, 500, 5, 0),
-(18, 7, 100, 1000, 2, 0);
-
 -- --------------------------------------------------------
 
 --
@@ -527,15 +469,6 @@ CREATE TABLE `tukarpoin` (
   `tanggal` date NOT NULL,
   `totalPoin` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data untuk tabel `tukarpoin`
---
-
-INSERT INTO `tukarpoin` (`idTukar`, `idKasir`, `idPelanggan`, `tanggal`, `totalPoin`) VALUES
-(1, 2, 1, '2020-05-29', 1000),
-(2, 2, 1, '2020-05-29', 4000),
-(3, 2, 1, '2020-06-02', 4000);
 
 -- --------------------------------------------------------
 
@@ -552,15 +485,6 @@ CREATE TABLE `tukarpoin_detail` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `tukarpoin_detail`
---
-
-INSERT INTO `tukarpoin_detail` (`tpID`, `idTukar`, `idBarang`, `hargaPoin`, `quantity`) VALUES
-(1, 1, 2, 1000, 1),
-(2, 1, 2, 1000, 4),
-(3, 3, 2, 1000, 4);
-
---
 -- Indexes for dumped tables
 --
 
@@ -568,13 +492,20 @@ INSERT INTO `tukarpoin_detail` (`tpID`, `idTukar`, `idBarang`, `hargaPoin`, `qua
 -- Indeks untuk tabel `akun`
 --
 ALTER TABLE `akun`
-  ADD PRIMARY KEY (`idAkun`);
+  ADD PRIMARY KEY (`idAkun`),
+  ADD UNIQUE KEY `username` (`username`);
 
 --
 -- Indeks untuk tabel `barang`
 --
 ALTER TABLE `barang`
   ADD PRIMARY KEY (`idBarang`);
+
+--
+-- Indeks untuk tabel `jabatan`
+--
+ALTER TABLE `jabatan`
+  ADD PRIMARY KEY (`idJabatan`);
 
 --
 -- Indeks untuk tabel `kategori`
@@ -644,25 +575,25 @@ ALTER TABLE `tukarpoin_detail`
 -- AUTO_INCREMENT untuk tabel `akun`
 --
 ALTER TABLE `akun`
-  MODIFY `idAkun` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `idAkun` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `barang`
 --
 ALTER TABLE `barang`
-  MODIFY `idBarang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=229;
+  MODIFY `idBarang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1000;
 
 --
 -- AUTO_INCREMENT untuk tabel `kategori`
 --
 ALTER TABLE `kategori`
-  MODIFY `idKategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `idKategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT untuk tabel `keperluan`
 --
 ALTER TABLE `keperluan`
-  MODIFY `idKeperluan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idKeperluan` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `log`
@@ -674,43 +605,43 @@ ALTER TABLE `log`
 -- AUTO_INCREMENT untuk tabel `pelanggan`
 --
 ALTER TABLE `pelanggan`
-  MODIFY `idPelanggan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idPelanggan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT untuk tabel `restok`
 --
 ALTER TABLE `restok`
-  MODIFY `idRestok` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `idRestok` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `restok_detail`
 --
 ALTER TABLE `restok_detail`
-  MODIFY `tdRd` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `tdRd` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `transaksi`
 --
 ALTER TABLE `transaksi`
-  MODIFY `idTransaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `idTransaksi` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `transaksi_detail`
 --
 ALTER TABLE `transaksi_detail`
-  MODIFY `tdID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `tdID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `tukarpoin`
 --
 ALTER TABLE `tukarpoin`
-  MODIFY `idTukar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idTukar` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `tukarpoin_detail`
 --
 ALTER TABLE `tukarpoin_detail`
-  MODIFY `tpID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `tpID` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

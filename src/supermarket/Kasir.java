@@ -105,8 +105,20 @@ public class Kasir extends javax.swing.JFrame {
         Tittle = new javax.swing.JPanel();
         txt_Tittle = new javax.swing.JLabel();
         layeredPane = new javax.swing.JLayeredPane();
+        lihatProfile = new javax.swing.JPanel();
+        Identitas = new javax.swing.JPanel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        textNama = new javax.swing.JLabel();
+        textNoTelp = new javax.swing.JLabel();
+        textEmail = new javax.swing.JLabel();
+        textJabatan = new javax.swing.JLabel();
+        gantiPassword = new javax.swing.JButton();
+        editData = new javax.swing.JButton();
+        jLabel46 = new javax.swing.JLabel();
         editProfile = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         nama1 = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
@@ -118,7 +130,7 @@ public class Kasir extends javax.swing.JFrame {
         jabatan1 = new javax.swing.JLabel();
         backEditProfile = new javax.swing.JButton();
         saveEditProfile = new javax.swing.JButton();
-        browseEditProfile = new javax.swing.JButton();
+        jLabel44 = new javax.swing.JLabel();
         Layout_daftarMember = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         tf_namaMember = new javax.swing.JTextField();
@@ -184,19 +196,6 @@ public class Kasir extends javax.swing.JFrame {
         jLabel23 = new javax.swing.JLabel();
         passwordLama = new javax.swing.JPasswordField();
         passwordBaru = new javax.swing.JPasswordField();
-        lihatProfile = new javax.swing.JPanel();
-        Foto = new javax.swing.JPanel();
-        Identitas = new javax.swing.JPanel();
-        jLabel18 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
-        jLabel21 = new javax.swing.JLabel();
-        textNama = new javax.swing.JLabel();
-        textNoTelp = new javax.swing.JLabel();
-        textEmail = new javax.swing.JLabel();
-        textJabatan = new javax.swing.JLabel();
-        gantiPassword = new javax.swing.JButton();
-        editData = new javax.swing.JButton();
         Layout_button = new javax.swing.JPanel();
         btn_tabelTukar = new javax.swing.JPanel();
         jLabel39 = new javax.swing.JLabel();
@@ -432,21 +431,67 @@ public class Kasir extends javax.swing.JFrame {
 
         bg.add(Tittle, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 30, 720, 100));
 
+        lihatProfile.setBackground(new java.awt.Color(255, 255, 255));
+        lihatProfile.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Identitas.setBackground(new java.awt.Color(255, 255, 255));
+        Identitas.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(240, 240, 240), 140, true));
+        Identitas.setForeground(new java.awt.Color(255, 255, 255));
+        Identitas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel18.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel18.setText("Nama  :");
+        Identitas.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, -1, 30));
+
+        jLabel19.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel19.setText("No. telp :");
+        Identitas.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, -1, 30));
+
+        jLabel20.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel20.setText("Email   :");
+        Identitas.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, -1, 30));
+
+        jLabel21.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel21.setText("Jabatan :");
+        Identitas.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, -1, 30));
+
+        textNama.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        Identitas.add(textNama, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 50, 340, 30));
+
+        textNoTelp.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        Identitas.add(textNoTelp, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, 340, 30));
+
+        textEmail.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        Identitas.add(textEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, 340, 30));
+
+        textJabatan.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        Identitas.add(textJabatan, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 200, 340, 30));
+
+        lihatProfile.add(Identitas, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 490, 280));
+
+        gantiPassword.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        gantiPassword.setText("Ganti Password");
+        gantiPassword.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                gantiPasswordMouseClicked(evt);
+            }
+        });
+        lihatProfile.add(gantiPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 340, -1, -1));
+
+        editData.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        editData.setText("Edit data");
+        editData.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                editDataMouseClicked(evt);
+            }
+        });
+        lihatProfile.add(editData, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 340, -1, -1));
+
+        jLabel46.setIcon(new javax.swing.ImageIcon(getClass().getResource("/supermarket/images/user_150px.png"))); // NOI18N
+        lihatProfile.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 50, 150, 130));
+
         editProfile.setBackground(new java.awt.Color(255, 255, 255));
         editProfile.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 130, Short.MAX_VALUE)
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 130, Short.MAX_VALUE)
-        );
-
-        editProfile.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 50, 130, 130));
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(240, 240, 240), 140, true));
@@ -504,9 +549,8 @@ public class Kasir extends javax.swing.JFrame {
         });
         editProfile.add(saveEditProfile, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 350, -1, -1));
 
-        browseEditProfile.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        browseEditProfile.setText("Browse");
-        editProfile.add(browseEditProfile, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 190, 90, 30));
+        jLabel44.setIcon(new javax.swing.ImageIcon(getClass().getResource("/supermarket/images/user_150px.png"))); // NOI18N
+        editProfile.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 50, 150, 130));
 
         Layout_daftarMember.setBackground(new java.awt.Color(255, 255, 255));
         Layout_daftarMember.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -1024,77 +1068,6 @@ public class Kasir extends javax.swing.JFrame {
 
         passwordProfile.add(kolomPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 630, 280));
 
-        lihatProfile.setBackground(new java.awt.Color(255, 255, 255));
-        lihatProfile.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        Foto.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-
-        javax.swing.GroupLayout FotoLayout = new javax.swing.GroupLayout(Foto);
-        Foto.setLayout(FotoLayout);
-        FotoLayout.setHorizontalGroup(
-            FotoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 130, Short.MAX_VALUE)
-        );
-        FotoLayout.setVerticalGroup(
-            FotoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 130, Short.MAX_VALUE)
-        );
-
-        lihatProfile.add(Foto, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 50, 130, 130));
-
-        Identitas.setBackground(new java.awt.Color(255, 255, 255));
-        Identitas.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(240, 240, 240), 140, true));
-        Identitas.setForeground(new java.awt.Color(255, 255, 255));
-        Identitas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel18.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel18.setText("Nama  :");
-        Identitas.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, -1, 30));
-
-        jLabel19.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel19.setText("No. telp :");
-        Identitas.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, -1, 30));
-
-        jLabel20.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel20.setText("Email   :");
-        Identitas.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, -1, 30));
-
-        jLabel21.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel21.setText("Jabatan :");
-        Identitas.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, -1, 30));
-
-        textNama.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        Identitas.add(textNama, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 50, 340, 30));
-
-        textNoTelp.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        Identitas.add(textNoTelp, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, 340, 30));
-
-        textEmail.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        Identitas.add(textEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, 340, 30));
-
-        textJabatan.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        Identitas.add(textJabatan, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 200, 340, 30));
-
-        lihatProfile.add(Identitas, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 490, 280));
-
-        gantiPassword.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        gantiPassword.setText("Ganti Password");
-        gantiPassword.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                gantiPasswordMouseClicked(evt);
-            }
-        });
-        lihatProfile.add(gantiPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 340, -1, -1));
-
-        editData.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        editData.setText("Edit data");
-        editData.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                editDataMouseClicked(evt);
-            }
-        });
-        lihatProfile.add(editData, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 340, -1, -1));
-
         Layout_button.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btn_tabelTukar.setBackground(new java.awt.Color(64, 43, 100));
@@ -1321,6 +1294,7 @@ public class Kasir extends javax.swing.JFrame {
                     .addComponent(Layout_rincian, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 21, Short.MAX_VALUE)))
         );
+        layeredPane.setLayer(lihatProfile, javax.swing.JLayeredPane.DEFAULT_LAYER);
         layeredPane.setLayer(editProfile, javax.swing.JLayeredPane.DEFAULT_LAYER);
         layeredPane.setLayer(Layout_daftarMember, javax.swing.JLayeredPane.DEFAULT_LAYER);
         layeredPane.setLayer(Layout_logKasir, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -1329,7 +1303,6 @@ public class Kasir extends javax.swing.JFrame {
         layeredPane.setLayer(Layout_tukarPoin, javax.swing.JLayeredPane.DEFAULT_LAYER);
         layeredPane.setLayer(Layout_transaksi, javax.swing.JLayeredPane.DEFAULT_LAYER);
         layeredPane.setLayer(passwordProfile, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        layeredPane.setLayer(lihatProfile, javax.swing.JLayeredPane.DEFAULT_LAYER);
         layeredPane.setLayer(Layout_button, javax.swing.JLayeredPane.DEFAULT_LAYER);
         layeredPane.setLayer(Layout_dataKasir, javax.swing.JLayeredPane.DEFAULT_LAYER);
         layeredPane.setLayer(Layout_listDiskon, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -1472,9 +1445,7 @@ public class Kasir extends javax.swing.JFrame {
                 sql="SELECT * FROM akun WHERE idAkun='"+idAkun+"' AND password=MD5('"+passwordLama.getText()+"')";
                 rs=stat.executeQuery(sql);
                 if(rs.next()){
-                    sql="UPDATE akun SET password=MD5('"+passwordBaru.getText()+"')WHERE idAkun='"+idAkun+"'";
-                    stat.execute(sql);
-                    JOptionPane.showMessageDialog(null, "Password berhasil diupdate");
+                    self.gantiPassword(passwordBaru.getText());
                 }else{
                     JOptionPane.showMessageDialog(null, "Password salah");
                 }
@@ -1513,11 +1484,9 @@ public class Kasir extends javax.swing.JFrame {
             try{
                 if(s!=null){
                     if(s.equalsIgnoreCase("")){
-                        sql="INSERT INTO transaksi values (NULL,'"+idAkun+"',0,CURDATE(),'"+Total_harga2.getText()+"')";
-                        stat.executeUpdate(sql);
+                        self.kelolaTransaksi("0",Total_harga2.getText());
                     }else{
-                        sql="INSERT INTO transaksi values (NULL,'"+idAkun+"','"+s+"',CURDATE(),'"+Total_harga2.getText()+"')";
-                        stat.executeUpdate(sql);
+                        self.kelolaTransaksi(s,Total_harga2.getText());
                         sql="UPDATE pelanggan SET poin=poin+(0.1*'"+Total_harga2.getText()+"') WHERE idPelanggan='"+s+"'";
                         stat.execute(sql);
                     }
@@ -1655,9 +1624,8 @@ public class Kasir extends javax.swing.JFrame {
             if(!error.equals("")){
                 JOptionPane.showMessageDialog(null, error);
             }else{
-                sql="INSERT INTO pelanggan values (NULL,'"+tf_namaMember.getText()+"','"+tf_noTelpMember.getText()+"','"+tf_emailMember.getText()+"',0)";
-                stat.executeUpdate(sql);
-                JOptionPane.showMessageDialog(null, "Berhasil menambah member");
+                pelanggan memberBaru = new pelanggan(tf_namaMember.getText(),tf_noTelpMember.getText(),tf_emailMember.getText());
+                self.tambahMember(memberBaru);
                 
                 sql="SELECT idPelanggan FROM pelanggan ORDER BY idPelanggan DESC LIMIT 1";
                 rs=stat.executeQuery(sql);
@@ -2016,7 +1984,7 @@ public class Kasir extends javax.swing.JFrame {
             int rows=0;
             int rowIndex=0;
             
-            sql="SELECT tanggal,aktivitas FROM log INNER JOIN jabatan using (idJabatan) WHERE namaJabatan='Kasir'";
+            sql="SELECT tanggal,aktivitas FROM log INNER JOIN jabatan using (idJabatan) WHERE namaJabatan='Kasir' ORDER BY idLog DESC";
             rs=stat.executeQuery(sql);
             if(rs.next()){
                 rs.last();
@@ -2125,6 +2093,7 @@ public class Kasir extends javax.swing.JFrame {
     }
     
     private void copyData(akun_kasir x){
+        self.idAkun=x.idAkun;
         self.nama=x.nama;
         self.noTelp=x.noTelp;
         self.email=x.email;
@@ -2134,70 +2103,109 @@ public class Kasir extends javax.swing.JFrame {
         self.password=x.password;
     }
     
-    public class akun_kasir extends super_akun{
+    public class akun_kasir{
         
         int idAkun;
         String nama,noTelp,email,jabatan,tglMasuk,username,password;
-//
-//        public akun_kasir(int id){
-//            this.idAkun=id;
-//            try{
-//                sql="SELECT * From akun INNER JOIN jabatan USING (idJabatan) Where idAkun='"+this.idAkun+"'";
-//                rs=stat.executeQuery(sql);
-//                rs.next();
-//                
-//                this.nama=rs.getString("nama");
-//                this.noTelp=rs.getString("noTelp");
-//                this.email=rs.getString("email");
-//                this.jabatan=rs.getString("namaJabatan");
-//                this.tglMasuk=rs.getString("tglMasuk");
-//                this.username=rs.getString("username");
-//                this.password=rs.getString("password");
-//                
-//            }catch(Exception e){
-//                System.out.print(e);
-//            }
-//        }
-//
-//        private akun_kasir() {
-//            this.nama="";
-//            this.noTelp="";
-//            this.email="";
-//            this.jabatan="";
-//            this.tglMasuk="";
-//            this.username="";
-//            this.password="";
-//        }
-//        
-//        private void editProfile(String nama,String noTelp,String email){
-//            this.nama=nama;
-//            this.noTelp=noTelp;
-//            this.email=email;
-//            
-//            try{
-//                sql="UPDATE akun SET nama='"+this.nama+"',noTelp='"+this.noTelp+"',email='"+this.email+"',foto=NULL WHERE idAkun='"+this.idAkun+"'";
-//                stat.executeUpdate(sql);
-//
-//                String aktivitas="Kasir id "+idAkun+" mengupdate profile";
-//                sql="INSERT INTO log values(null,3,'"+idAkun+"','"+aktivitas+"',CURDATE())";
-//                stat.executeUpdate(sql);
-//                
-//                JOptionPane.showMessageDialog(null, "Berhasil mengupdate data");
-//            }catch(Exception e){
-//                System.out.print(e);
-//            }
-//        }
 
-        public akun_kasir(int id) {
-            super(id);
+        public akun_kasir(int id){
+            this.idAkun=id;
+            try{
+                sql="SELECT * From akun INNER JOIN jabatan USING (idJabatan) Where idAkun='"+this.idAkun+"'";
+                rs=stat.executeQuery(sql);
+                rs.next();
+                
+                this.nama=rs.getString("nama");
+                this.noTelp=rs.getString("noTelp");
+                this.email=rs.getString("email");
+                this.jabatan=rs.getString("namaJabatan");
+                this.tglMasuk=rs.getString("tglMasuk");
+                this.username=rs.getString("username");
+                this.password=rs.getString("password");
+                
+            }catch(Exception e){
+                System.out.print(e);
+            }
         }
+
         public akun_kasir() {
-            super();
+            this.nama="";
+            this.noTelp="";
+            this.email="";
+            this.jabatan="";
+            this.tglMasuk="";
+            this.username="";
+            this.password="";
+        }
+        
+        private void editProfile(String nama,String noTelp,String email){
+            this.nama=nama;
+            this.noTelp=noTelp;
+            this.email=email;
+            
+            try{
+                sql="UPDATE akun SET nama='"+this.nama+"',noTelp='"+this.noTelp+"',email='"+this.email+"',foto=NULL WHERE idAkun='"+this.idAkun+"'";
+                stat.executeUpdate(sql);
+
+                String aktivitas="Kasir id "+this.idAkun+" mengupdate profile";
+                sql="INSERT INTO log values(null,3,'"+this.idAkun+"','"+aktivitas+"',CURDATE())";
+                stat.executeUpdate(sql);
+                
+                JOptionPane.showMessageDialog(null, "Berhasil mengupdate data");
+            }catch(Exception e){
+                System.out.print(e);
+            }
+        }
+
+        private void gantiPassword(String passwordBaru){
+            try{
+                sql="UPDATE akun SET password=MD5('"+passwordBaru+"')WHERE idAkun='"+this.idAkun+"'";
+                stat.execute(sql);
+            }catch(Exception e){
+                System.out.print(e);
+            }
+            JOptionPane.showMessageDialog(null, "Password berhasil diupdate");
+            try{
+                sql="SELECT password FROM akun WHERE idAkun='"+this.idAkun+"'";
+                rs=stat.executeQuery(sql);
+                rs.next();
+                this.password=rs.getString(1);
+            }catch(Exception e){
+                System.out.print(e);
+            }
+        }
+        private void tambahMember(pelanggan x){
+            try{
+                sql="INSERT INTO pelanggan values (NULL,'"+x.namaPelanggan+"','"+x.noTelp+"','"+x.email+"',0)";
+                stat.executeUpdate(sql);
+            }catch(Exception e){
+                System.out.print(e);
+            }
+            JOptionPane.showMessageDialog(null, "Berhasil menambah member");
+        }
+        
+        private void kelolaTransaksi(String s,String totalBelanja){
+            try{
+                sql="INSERT INTO transaksi values (NULL,'"+this.idAkun+"','"+s+"',CURDATE(),'"+totalBelanja+"')";
+                stat.executeUpdate(sql);
+            }catch(Exception e){
+                System.out.print(e);
+            }
+        }
+    }
+    
+    public class pelanggan{
+        int idPelanggan,poin;
+        String namaPelanggan,noTelp,email;
+        
+        public pelanggan(String namaPelanggan,String noTelp, String email){
+            this.namaPelanggan=namaPelanggan;
+            this.noTelp=noTelp;
+            this.email=email;
         }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel Foto;
     private javax.swing.JPanel Identitas;
     private javax.swing.JLabel Kembali;
     private javax.swing.JLabel Kembali2;
@@ -2221,7 +2229,6 @@ public class Kasir extends javax.swing.JFrame {
     private javax.swing.JPanel addRow1;
     private javax.swing.JButton backEditProfile;
     private javax.swing.JPanel bg;
-    private javax.swing.JButton browseEditProfile;
     private javax.swing.JPanel btn_daftarMember;
     private javax.swing.JPanel btn_dataKasir;
     private javax.swing.JPanel btn_listDiskon;
@@ -2277,13 +2284,14 @@ public class Kasir extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel43;
+    private javax.swing.JLabel jLabel44;
     private javax.swing.JLabel jLabel45;
+    private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;

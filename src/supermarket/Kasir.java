@@ -105,6 +105,20 @@ public class Kasir extends javax.swing.JFrame {
         Tittle = new javax.swing.JPanel();
         txt_Tittle = new javax.swing.JLabel();
         layeredPane = new javax.swing.JLayeredPane();
+        editProfile = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
+        nama1 = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        no_telp1 = new javax.swing.JTextField();
+        jLabel16 = new javax.swing.JLabel();
+        email1 = new javax.swing.JTextField();
+        jLabel17 = new javax.swing.JLabel();
+        jabatan1 = new javax.swing.JLabel();
+        backEditProfile = new javax.swing.JButton();
+        saveEditProfile = new javax.swing.JButton();
+        browseEditProfile = new javax.swing.JButton();
         Layout_daftarMember = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         tf_namaMember = new javax.swing.JTextField();
@@ -162,20 +176,6 @@ public class Kasir extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         addRow = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        editProfile = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
-        jPanel4 = new javax.swing.JPanel();
-        nama1 = new javax.swing.JTextField();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        no_telp1 = new javax.swing.JTextField();
-        jLabel16 = new javax.swing.JLabel();
-        email1 = new javax.swing.JTextField();
-        jLabel17 = new javax.swing.JLabel();
-        jabatan1 = new javax.swing.JLabel();
-        backEditProfile = new javax.swing.JButton();
-        saveEditProfile = new javax.swing.JButton();
-        browseEditProfile = new javax.swing.JButton();
         passwordProfile = new javax.swing.JPanel();
         passwordSave = new javax.swing.JButton();
         passwordCancel = new javax.swing.JButton();
@@ -431,6 +431,82 @@ public class Kasir extends javax.swing.JFrame {
         Tittle.add(txt_Tittle, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, 470, 40));
 
         bg.add(Tittle, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 30, 720, 100));
+
+        editProfile.setBackground(new java.awt.Color(255, 255, 255));
+        editProfile.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 130, Short.MAX_VALUE)
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 130, Short.MAX_VALUE)
+        );
+
+        editProfile.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 50, 130, 130));
+
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel4.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(240, 240, 240), 140, true));
+        jPanel4.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        nama1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        nama1.setMargin(new java.awt.Insets(2, 8, 2, 2));
+        jPanel4.add(nama1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 50, 300, 30));
+
+        jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel14.setText("Nama  :");
+        jPanel4.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, -1, 30));
+
+        jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel15.setText("No. telp :");
+        jPanel4.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, -1, 30));
+
+        no_telp1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        no_telp1.setMargin(new java.awt.Insets(2, 8, 2, 2));
+        jPanel4.add(no_telp1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, 300, 30));
+
+        jLabel16.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel16.setText("Email   :");
+        jPanel4.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, -1, 30));
+
+        email1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        email1.setMargin(new java.awt.Insets(2, 8, 2, 2));
+        jPanel4.add(email1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, 300, 30));
+
+        jLabel17.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel17.setText("Jabatan :");
+        jPanel4.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, -1, 30));
+
+        jabatan1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jPanel4.add(jabatan1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 200, 340, 30));
+
+        editProfile.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 490, 280));
+
+        backEditProfile.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        backEditProfile.setText("Back");
+        backEditProfile.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                backEditProfileMouseClicked(evt);
+            }
+        });
+        editProfile.add(backEditProfile, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 350, -1, -1));
+
+        saveEditProfile.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        saveEditProfile.setText("Save");
+        saveEditProfile.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                saveEditProfileMouseClicked(evt);
+            }
+        });
+        editProfile.add(saveEditProfile, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 350, -1, -1));
+
+        browseEditProfile.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        browseEditProfile.setText("Browse");
+        editProfile.add(browseEditProfile, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 190, 90, 30));
 
         Layout_daftarMember.setBackground(new java.awt.Color(255, 255, 255));
         Layout_daftarMember.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -909,82 +985,6 @@ public class Kasir extends javax.swing.JFrame {
 
         Layout_transaksi.add(addRow, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 60, 30));
 
-        editProfile.setBackground(new java.awt.Color(255, 255, 255));
-        editProfile.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 130, Short.MAX_VALUE)
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 130, Short.MAX_VALUE)
-        );
-
-        editProfile.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 50, 130, 130));
-
-        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel4.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(240, 240, 240), 140, true));
-        jPanel4.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        nama1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        nama1.setMargin(new java.awt.Insets(2, 8, 2, 2));
-        jPanel4.add(nama1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 50, 300, 30));
-
-        jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel14.setText("Nama  :");
-        jPanel4.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, -1, 30));
-
-        jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel15.setText("No. telp :");
-        jPanel4.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, -1, 30));
-
-        no_telp1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        no_telp1.setMargin(new java.awt.Insets(2, 8, 2, 2));
-        jPanel4.add(no_telp1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, 300, 30));
-
-        jLabel16.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel16.setText("Email   :");
-        jPanel4.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, -1, 30));
-
-        email1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        email1.setMargin(new java.awt.Insets(2, 8, 2, 2));
-        jPanel4.add(email1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, 300, 30));
-
-        jLabel17.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel17.setText("Jabatan :");
-        jPanel4.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, -1, 30));
-
-        jabatan1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jPanel4.add(jabatan1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 200, 340, 30));
-
-        editProfile.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 490, 280));
-
-        backEditProfile.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        backEditProfile.setText("Back");
-        backEditProfile.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                backEditProfileMouseClicked(evt);
-            }
-        });
-        editProfile.add(backEditProfile, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 350, -1, -1));
-
-        saveEditProfile.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        saveEditProfile.setText("Save");
-        saveEditProfile.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                saveEditProfileMouseClicked(evt);
-            }
-        });
-        editProfile.add(saveEditProfile, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 350, -1, -1));
-
-        browseEditProfile.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        browseEditProfile.setText("Browse");
-        editProfile.add(browseEditProfile, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 190, 90, 30));
-
         passwordProfile.setBackground(new java.awt.Color(255, 255, 255));
         passwordProfile.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -1321,13 +1321,13 @@ public class Kasir extends javax.swing.JFrame {
                     .addComponent(Layout_rincian, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 21, Short.MAX_VALUE)))
         );
+        layeredPane.setLayer(editProfile, javax.swing.JLayeredPane.DEFAULT_LAYER);
         layeredPane.setLayer(Layout_daftarMember, javax.swing.JLayeredPane.DEFAULT_LAYER);
         layeredPane.setLayer(Layout_logKasir, javax.swing.JLayeredPane.DEFAULT_LAYER);
         layeredPane.setLayer(Layout_riwayat, javax.swing.JLayeredPane.DEFAULT_LAYER);
         layeredPane.setLayer(Layout_rincian, javax.swing.JLayeredPane.DEFAULT_LAYER);
         layeredPane.setLayer(Layout_tukarPoin, javax.swing.JLayeredPane.DEFAULT_LAYER);
         layeredPane.setLayer(Layout_transaksi, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        layeredPane.setLayer(editProfile, javax.swing.JLayeredPane.DEFAULT_LAYER);
         layeredPane.setLayer(passwordProfile, javax.swing.JLayeredPane.DEFAULT_LAYER);
         layeredPane.setLayer(lihatProfile, javax.swing.JLayeredPane.DEFAULT_LAYER);
         layeredPane.setLayer(Layout_button, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -1435,24 +1435,30 @@ public class Kasir extends javax.swing.JFrame {
 
     private void editDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editDataMouseClicked
         switchPanels(editProfile);
-        akun_kasir kasir = new akun_kasir(idAkun);
-        nama1.setText(kasir.nama);
-        no_telp1.setText(kasir.noTelp);
-        email1.setText(kasir.email);
-        jabatan1.setText(kasir.jabatan);
+        nama1.setText(self.nama);
+        no_telp1.setText(self.noTelp);
+        email1.setText(self.email);
+        jabatan1.setText(self.jabatan);
     }//GEN-LAST:event_editDataMouseClicked
 
     private void backEditProfileMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backEditProfileMouseClicked
         switchPanels(lihatProfile);
-        akun_kasir kasir = new akun_kasir(idAkun);
-        textNama.setText(kasir.nama);
-        textNoTelp.setText(kasir.noTelp);
-        textEmail.setText(kasir.email);
-        textJabatan.setText(kasir.jabatan);
+        textNama.setText(self.nama);
+        textNoTelp.setText(self.noTelp);
+        textEmail.setText(self.email);
+        textJabatan.setText(self.jabatan);
     }//GEN-LAST:event_backEditProfileMouseClicked
 
     private void saveEditProfileMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_saveEditProfileMouseClicked
-        self.editProfile(nama1.getText(),no_telp1.getText(),email1.getText());
+        String error="";
+        if(nama1.getText().equals(""))error+="Nama tidak boleh kosong\n";
+        if(no_telp1.getText().equals(""))error+="No.Telp tidak boleh kosong\n";
+        if(email1.getText().equals(""))error+="Email tidak boleh kosong\n";
+        if(!error.equals("")){
+            JOptionPane.showMessageDialog(null, error);
+        }else{
+            self.editProfile(nama1.getText(),no_telp1.getText(),email1.getText());
+        }
     }//GEN-LAST:event_saveEditProfileMouseClicked
 
     private void passwordSaveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passwordSaveMouseClicked
@@ -1482,11 +1488,10 @@ public class Kasir extends javax.swing.JFrame {
 
     private void passwordCancelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passwordCancelMouseClicked
         switchPanels(lihatProfile);
-        akun_kasir kasir = new akun_kasir(idAkun);
-        textNama.setText(kasir.nama);
-        textNoTelp.setText(kasir.noTelp);
-        textEmail.setText(kasir.email);
-        textJabatan.setText(kasir.jabatan);
+        textNama.setText(self.nama);
+        textNoTelp.setText(self.noTelp);
+        textEmail.setText(self.email);
+        textJabatan.setText(self.jabatan);
     }//GEN-LAST:event_passwordCancelMouseClicked
 
     private void Uang2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Uang2KeyReleased
@@ -2129,57 +2134,65 @@ public class Kasir extends javax.swing.JFrame {
         self.password=x.password;
     }
     
-    public class akun_kasir{
+    public class akun_kasir extends super_akun{
+        
         int idAkun;
         String nama,noTelp,email,jabatan,tglMasuk,username,password;
+//
+//        public akun_kasir(int id){
+//            this.idAkun=id;
+//            try{
+//                sql="SELECT * From akun INNER JOIN jabatan USING (idJabatan) Where idAkun='"+this.idAkun+"'";
+//                rs=stat.executeQuery(sql);
+//                rs.next();
+//                
+//                this.nama=rs.getString("nama");
+//                this.noTelp=rs.getString("noTelp");
+//                this.email=rs.getString("email");
+//                this.jabatan=rs.getString("namaJabatan");
+//                this.tglMasuk=rs.getString("tglMasuk");
+//                this.username=rs.getString("username");
+//                this.password=rs.getString("password");
+//                
+//            }catch(Exception e){
+//                System.out.print(e);
+//            }
+//        }
+//
+//        private akun_kasir() {
+//            this.nama="";
+//            this.noTelp="";
+//            this.email="";
+//            this.jabatan="";
+//            this.tglMasuk="";
+//            this.username="";
+//            this.password="";
+//        }
+//        
+//        private void editProfile(String nama,String noTelp,String email){
+//            this.nama=nama;
+//            this.noTelp=noTelp;
+//            this.email=email;
+//            
+//            try{
+//                sql="UPDATE akun SET nama='"+this.nama+"',noTelp='"+this.noTelp+"',email='"+this.email+"',foto=NULL WHERE idAkun='"+this.idAkun+"'";
+//                stat.executeUpdate(sql);
+//
+//                String aktivitas="Kasir id "+idAkun+" mengupdate profile";
+//                sql="INSERT INTO log values(null,3,'"+idAkun+"','"+aktivitas+"',CURDATE())";
+//                stat.executeUpdate(sql);
+//                
+//                JOptionPane.showMessageDialog(null, "Berhasil mengupdate data");
+//            }catch(Exception e){
+//                System.out.print(e);
+//            }
+//        }
 
-        public akun_kasir(int id){
-            this.idAkun=id;
-            try{
-                sql="SELECT * From akun INNER JOIN jabatan USING (idJabatan) Where idAkun='"+this.idAkun+"'";
-                rs=stat.executeQuery(sql);
-                rs.next();
-                
-                this.nama=rs.getString("nama");
-                this.noTelp=rs.getString("noTelp");
-                this.email=rs.getString("email");
-                this.jabatan=rs.getString("namaJabatan");
-                this.tglMasuk=rs.getString("tglMasuk");
-                this.username=rs.getString("username");
-                this.password=rs.getString("password");
-                
-            }catch(Exception e){
-                System.out.print(e);
-            }
+        public akun_kasir(int id) {
+            super(id);
         }
-
-        private akun_kasir() {
-            this.nama="";
-            this.noTelp="";
-            this.email="";
-            this.jabatan="";
-            this.tglMasuk="";
-            this.username="";
-            this.password="";
-        }
-        
-        private void editProfile(String nama,String noTelp,String email){
-            this.nama=nama;
-            this.noTelp=noTelp;
-            this.email=email;
-            
-            try{
-                sql="UPDATE akun SET nama='"+this.nama+"',noTelp='"+this.noTelp+"',email='"+this.email+"',foto=NULL WHERE idAkun='"+this.idAkun+"'";
-                stat.executeUpdate(sql);
-
-                String aktivitas="Kasir id "+idAkun+" mengupdate profile";
-                sql="INSERT INTO log values(null,3,'"+idAkun+"','"+aktivitas+"',CURDATE()";
-                stat.executeUpdate(sql);
-                
-                JOptionPane.showMessageDialog(null, "Berhasil mengupdate data");
-            }catch(Exception e){
-                System.out.print(e);
-            }
+        public akun_kasir() {
+            super();
         }
     }
 

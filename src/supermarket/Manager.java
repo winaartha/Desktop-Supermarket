@@ -2812,27 +2812,28 @@ public class Manager extends javax.swing.JFrame {
         }
         
         txt_Tittle.setText("Laporan");
-        String[] bulan=bulanLaporan.getSelectedItem().toString().split("-");
-        String[] namaBulan={"Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"};
-        int bulan_i=Integer.parseInt(bulan[1]);
-        bulanTahun.setText(namaBulan[bulan_i-1]+" "+bulan[0]);
-        
-        
-        setTablePendapatan(tabelPendapatan);
-        setTablePengeluaran(tabelPengeluaran);
-        hitungLaporan();
-        bulanLaporan.addItemListener(new ItemListener() {
-            @Override
-            public void itemStateChanged(ItemEvent e) {
-                String[] bulan=bulanLaporan.getSelectedItem().toString().split("-");
-                int bulan_i=Integer.parseInt(bulan[1]);
-                bulanTahun.setText(namaBulan[bulan_i-1]+" "+bulan[0]);
-                
-                setTablePendapatan(tabelPendapatan);
-                setTablePengeluaran(tabelPengeluaran);
-                hitungLaporan();
-            }
-        });
+        if(bulanLaporan.getItemCount()!=0){
+            String[] bulan=bulanLaporan.getSelectedItem().toString().split("-");
+            String[] namaBulan={"Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"};
+            int bulan_i=Integer.parseInt(bulan[1]);
+            bulanTahun.setText(namaBulan[bulan_i-1]+" "+bulan[0]);
+
+            setTablePendapatan(tabelPendapatan);
+            setTablePengeluaran(tabelPengeluaran);
+            hitungLaporan();
+            bulanLaporan.addItemListener(new ItemListener() {
+                @Override
+                public void itemStateChanged(ItemEvent e) {
+                    String[] bulan=bulanLaporan.getSelectedItem().toString().split("-");
+                    int bulan_i=Integer.parseInt(bulan[1]);
+                    bulanTahun.setText(namaBulan[bulan_i-1]+" "+bulan[0]);
+
+                    setTablePendapatan(tabelPendapatan);
+                    setTablePengeluaran(tabelPengeluaran);
+                    hitungLaporan();
+                }
+            });
+        }
     }
     
     private void hitungLaporan(){
@@ -2870,7 +2871,6 @@ public class Manager extends javax.swing.JFrame {
                 rows=rs.getRow();
                 rs.beforeFirst();
             }
-//            System.out.println(rows);
             String[][] data=new String[rows][3];
             while(rs.next()){
                 data[rowIndex][0]=rs.getInt(1)+"";

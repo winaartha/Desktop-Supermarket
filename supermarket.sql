@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 06 Jun 2020 pada 04.17
+-- Waktu pembuatan: 06 Jun 2020 pada 05.17
 -- Versi server: 10.4.11-MariaDB
 -- Versi PHP: 7.4.6
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `supermarket`
+-- Database: `supermarket_checkpoint`
 --
 
 -- --------------------------------------------------------
@@ -461,9 +461,9 @@ CREATE TABLE `restok_detail` (
 --
 
 INSERT INTO `restok_detail` (`tdRd`, `idRestok`, `idBarang`, `qTerima`, `qBonus`, `hargaBeliSatuan`) VALUES
-(1, 4, 5, 50, 0, 500),
-(2, 4, 100, 50, 0, 1000),
-(3, 4, 134, 100, 5000, 1000);
+(1, 1, 5, 50, 0, 500),
+(2, 1, 100, 50, 0, 1000),
+(3, 1, 134, 100, 5000, 1000);
 
 -- --------------------------------------------------------
 
